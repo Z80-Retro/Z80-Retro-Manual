@@ -58,7 +58,7 @@ The Z80-Retro has 3 primary interfaces for communication with external devices.
 
 There are two daughter boards available for the Z80-Retro.
 
-- Raspberry Pi Flash Programmer.
+### Raspberry Pi Flash Programmer
   
   ![Z80-Retro Programmer Board](./assets/2065-Z80-programmer.jpg)
 
@@ -67,7 +67,8 @@ There are two daughter boards available for the Z80-Retro.
   It is also possible to program the FLASH ROM directly using another kind of programmer that supports the specific FLASH ROM device.
 
   The programmer has on board voltage level shifting to protect the 3.3VT pins on the Raspberry Pi.
-- TMS9118 VDP Graphics card
+  
+### TMS9118 VDP Graphics card
 
   ![Z80-Retro VDP Board](./assets/2068-Z80-TMS9118.png)
 
