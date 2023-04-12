@@ -16,6 +16,7 @@ The document is split into different sections.  It is recommended to read throug
 - [Z80-Retro Architecture](./Z80-RETRO-ARCHITECTURE.md)
 - [Z80-Retro Build](./Z80-RETRO-BUILD.md)
 - [Z80-Retro Firmware](./Z80-RETRO-FIRMWARE.md)
+- [Z80-Retro Memory](./Z80-RETRO-MEMORY.md)
 - [Z80-Retro Software](./Z80-RETRO-SOFTWARE.md)
 - [Z80-Retro VDP Build](./Z80-RETRO-VDP-BUILD.md)
 - [Z80-Retro VDP Software](./Z80-RETRO-VDP-SOFTWARE.md)
@@ -25,6 +26,8 @@ The document is split into different sections.  It is recommended to read throug
 - Links:
 
   Wherever a better resource exists on the internet that provides additional detail, a link will be provided.  For the most part, these will be links to the Johns Basement YouTube videos or GitHub repositories.
+
+  eg: _Video Link: [Z80 Retro #7 - 512K Bank Selected Memory](https://www.youtube.com/watch?v=zrnZkAMAh6A)_
 
 - Commands:
 

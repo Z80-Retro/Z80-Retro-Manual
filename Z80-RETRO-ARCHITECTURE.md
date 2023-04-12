@@ -4,7 +4,12 @@
 
 ## CPU Board Block Diagram
 
-![Z80-Retro CPU Board Block Diagram](./assets/z80-retro-cpu-block-diagram.jpg)
+ - _Video Link: [Z80 Retro #2 - Block Diagram](https://www.youtube.com/watch?v=0qr3FNo16Gg)_
+
+![Block Diagram](./assets/z80-retro-block-diagram-hand-drawn.jpeg)
+
+
+![Formatted Block Diagram](./assets/z80_blockdiagram.drawio.png)
 
 The CPU Board is built around the Zilog 8 bit Z80 CPU.  It has a 16 bit wide address bus which means it can address a maximum of 64KB of memory.
 
@@ -43,7 +48,7 @@ John, the designer, has tried as much as possible to re-create the original Sing
 - Reset Circuit
   A momentary push button style switch that brings the RESET signal low while held down.  Used to COLD BOOT the CPU, reset the FLASH latch, and start everything up from scratch.
 
-## Input Output Interfaces
+## External Input Output Interfaces
 
 The Z80-Retro has 3 primary interfaces for communication with external devices.
 

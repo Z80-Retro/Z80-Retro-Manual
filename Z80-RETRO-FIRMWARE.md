@@ -2,3 +2,7 @@
 
 [Back](./README.md)
 
+## Compiling Firmware
+
+## Installing Firmware
+
