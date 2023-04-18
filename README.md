@@ -19,6 +19,7 @@ so go ahead and bookmark this page right now.
 
 ## Sections
 
+- [Preface](./PREFACE.md)
 - General
   - [Z80-Retro Architecture](./Z80-RETRO-ARCHITECTURE.md)
   - [Z80-Retro Build](./Z80-RETRO-BUILD.md)
