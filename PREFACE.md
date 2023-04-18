@@ -18,6 +18,14 @@ consideration for the viewer's learning experience as John's Basement.
 Before you even have the supplies you need to get started, you really should
 join the Z80 Retro! Discord Server, introduce yourself, and join the community.
 
+Here are some photos of my build.
+
+![gallery01](./assets/PXL_20230402_044401816.jpg)
+
+![gallery02](./assets/PXL_20230402_045257849.jpg)
+
+![gallery03](./assets/PXL_20230402_045336588.jpg)
+
 Rock On!
 
 Dave Latham - aka (production-dave)
