@@ -8,7 +8,7 @@ In order to compile the firmware you must have completed the steps described in
 [Z80-Retro Development Environment](./Z80-RETRO-DEVEVELOPMENT.md)
 
 The firmware executes on the Flash after a system reset or at power on assuming
-the reset logic is working correctly.  Either way, it's task is to copy the
+the reset logic is working correctly.  Either way, its task is to copy the
 first 16KB from partition 1 of the SD Card into at 0xC000 then
 jump to 0xC000 and begin execution from there.  The low memory bank is set to
 bank 14 at this time.
@@ -16,8 +16,7 @@ bank 14 at this time.
 ## Compiling Firmware
 
 The firmware is in the [2063-Z80-cpm](https://github.com/Z80-Retro/2063-Z80-cpm.git)
-repository.  There are customisations that can be applied to your firmware which
-are described in the next section.  The base build, however, works as follows:
+repository.
 
 ```text
 $ cd 2063-Z80-cpm
@@ -53,11 +52,11 @@ the scope of this manual.
 ### Using the Raspberry Pi Prograammer
 
 The main benefit of using this programmer board is that you can program your
-flash in-system.  That means that you don't need to pull the Flash chip from the
-Z80-Retro to program it.  It takes control of the Z80 address and data bus while
-it programs the flash.
+flash in-system.  That means that you don't need to pull the flash chip from the
+Z80-Retro to program it.  It takes control of the Z80 address and data busses
+while it programs the flash.
 
-The process for this is described well in the Video.
+The process for this is described well in these videos.
 
 - _Video Link:  [Z80 Retro #9 - FLASH Programmer](https://youtu.be/7DjiD5pvCqc)_
 - _Video Link: [Z80 Retro #10 - FLASH Programmer Software](https://youtu.be/w5LYCHml4A8)_
@@ -69,4 +68,6 @@ Z80-Retro.  Be careful as it's very easy to bend the IC Pins when pulling chips
 out of their sockets.
 
 The manufacture supplied software for the XGPro runs on windows only.  There is
-an opensource project exists on [GitLab](https://gitlab.com/DavidGriffith/minipro)
+an opensource project on [GitLab](https://gitlab.com/DavidGriffith/minipro) that
+you can clone, build and use to program your chips.  Follow the usage
+instructions in that repository.
