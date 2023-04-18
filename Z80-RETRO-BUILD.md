@@ -12,6 +12,9 @@ That said, here are some tips:
   - _Video Link: [Z80 Retro #34 - v4rc1 Full Build and Test pt. 2](https://youtu.be/aZyimz6YkGY)_
 
 - Use good quality, machined sockets for the full can oscilators.
+- Watch out when ordering the resistors.  They need to be the 1/8 watt type.
+They are very small.  The more common 1/4 watt type will not fit well on the
+board.  You can make them work, but it's gonna be messy.
 - If you're struggling with the surfacemounted SD Card socket, have a look at
 the sparkfun breakout board option.
 - Some people even use sockets for the resistor networks.  This does raise them
@@ -24,9 +27,10 @@ work, they are polarised so care should be taken to install them correctly and
 they are sensitive to voltage spikes and the risk of them popping is high.
 **DON'T USE THEM.**
 They are censored in the image below.
-
 - Make sure your oscilator cans are oriented correctly.  Pin 1 is pointed to by
 the orange arrows on the image below.
+- You can use the cheaper socket types for everything but the oscilator cans.
+(I used machined sockets because I am a nerd.)  It's not required.
 
 ## As Built CPU Board
 
