@@ -17,13 +17,13 @@ the sparkfun breakout board option.
 - Some people even use sockets for the resistor networks.  This does raise them
 up slightly but as resistor networks are more expensive, you might want to
 consider using a socket for them too.
-- Use ceramic MMCC Capacitors for the unpolorised capacititors.  An assortment
-can be purchesed from [Amazon](https://www.amazon.com/ceramic-capacitor-kit/s?k=ceramic+capacitor+kit).
+- Use ceramic MMCC Capacitors for the unpolarised capacititors.  An assortment
+can be purchased from [Amazon](https://www.amazon.com/ceramic-capacitor-kit/s?k=ceramic+capacitor+kit).
 Don't use tantalum capacitors like I did in the RS232 circuit.  While they do
 work, they are polarised so care should be taken to install them correctly and
 they are sensitive to voltage spikes and the risk of them popping is high.
 **DON'T USE THEM.**
-They are cencored in the image below.
+They are censored in the image below.
 
 - Make sure your oscilator cans are oriented correctly.  Pin 1 is pointed to by
 the orange arrows on the image below.
@@ -42,6 +42,6 @@ image.
 |J1 - CONSOLE (A)|Primary serial connection to host PC pin configuration.            |TX-PIN2,RX-PIN3
 |J8 - AUX (B)    |Used for auxilary serial connections                               |Unpopulated
 |J11 - SIO/CTC   |Used to set SIO or CTC as clock source for CONSOLE (A) and AUX (B) |Both set to X2
-|J12             |Use to select a different bank on the Flash.                       |Unpopulated
+|J12             |Used to select a different bank on the Flash.                      |Unpopulated
 |J9 - USER1      |General user input.  Assigned to bit 5 on GP Input.                |Unpopulated
 <!-- markdownlint-restore -->
