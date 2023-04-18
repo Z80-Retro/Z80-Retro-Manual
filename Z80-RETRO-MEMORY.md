@@ -4,21 +4,27 @@
 
 ## Z80 Memory
 
- - _Video Link: [Z80 Retro #7 - 512K Bank Selected Memory](https://www.youtube.com/watch?v=zrnZkAMAh6A)_
+- _Video Link: [Z80 Retro #7 - 512K Bank Selected Memory](https://www.youtube.com/watch?v=zrnZkAMAh6A)_
 
-As the Z80 processor has a 16bit wide address bus, it can only address 64K of memory.  This will include both the boot rom and the static ram combined.
+As the Z80 processor has a 16bit wide address bus, it can only address 64K of
+memory.  This will include both the boot rom and the static ram combined.
 
-The Z80 Boot rom is designed to load the operating system from the SD Card and save it into ram.  When that task is complete, it disables the ROM and enters the operating system.  Thus, and for the purposes of this section of the manual, any talk of memory will refer to memory in SRAM unless otherwise noted.
+The Z80 Boot rom is designed to load the operating system from the SD Card and
+save it into ram.  When that task is complete, it disables the ROM and enters
+e operating system.  Thus, and for the purposes of this section of the manual,
+any talk of memory will refer to memory in SRAM unless otherwise noted.
 
 ## Banked Memory Layout
 
-The Z80 Retro SRAM is a 512K SRAM device.  It can be divided down into 16 blocks of 32K.  The memory select logic is responsible for enabling or disabling banks of RAM such that the CPU has access to a total of 64K of RAM at all times.
+The Z80 Retro SRAM is a 512K SRAM device.  It can be divided down into 16 blocks
+of 32K.  The memory select logic is responsible for enabling or disabling banks
+of RAM such that the CPU has access to a total of 64K of RAM at all times.
 
 | BANK | START   | END     | COMMENT / USAGE
 |------|---------|---------|----------------
 |15    | 0x78000 | 0x7FFFF | ALWAYS enabled for addresses 0x8000 to 0xFFFF
-|14    | 0x70000 | 0x77FFF | 
-|13    | 0x68000 | 0x6FFFF | 
+|14    | 0x70000 | 0x77FFF |
+|13    | 0x68000 | 0x6FFFF |
 |12    | 0x60000 | 0x67FFF |
 |11    | 0x58000 | 0x5FFFF |
 |10    | 0x50000 | 0x57FFF |
@@ -33,14 +39,29 @@ The Z80 Retro SRAM is a 512K SRAM device.  It can be divided down into 16 blocks
 |01    | 0x08000 | 0x0FFFF |
 |00    | 0x00000 | 0x07FFF |
 
-Bank 15 is always enabled whenever the CPU addresses anything in the 0x8000 to 0xFFFF address range.  This is also called the HIGH Bank.
+Bank 15 is always enabled whenever the CPU addresses anything in the 0x8000 to
+0xFFFF address range.  This is also called the HIGH Bank.
 
-The remaining 15 Banks (0-14) can be selected into the LOW Bank or addresses from (0x0000 to 0x7FFF).  For example, if bank 05 is selected and the CPU reads from address 0x100 that read will be made against address 0x28000 + 0x100 = 0x28100 in the SRAM device.  The CPU has no idea that happened as from it's perspective it wants to read 0x100.  The memory select logic is deciding which bank of memory in the SRAM range to retreive that data from.
+The remaining 15 Banks (0-14) can be selected into the LOW Bank or addresses
+from (0x0000 to 0x7FFF).  For example, if bank 05 is selected and the CPU reads
+from address 0x100 that read will be made against address 0x28000 + 0x100 =
+0x28100 in the SRAM device.  The CPU has no idea that happened as from it's
+perspective it wants to read 0x100.  The memory select logic is deciding which
+bank of memory in the SRAM range to retreive that data from.
 
 ## The BANK Selection Logic
 
-Address lines 15 - 18 on the SRAM chip provide the memory division down to 16x32K banks.  These 4 address lines are driven by 4 or gates where each line is or'd together with A15 from the CPU.  Thus, if the CPU is requesting data from the high half of memory (0x8000 - 0xFFFF), A15 will be a 1 and and a 1 OR x is always = 1.  In this case, all 4 lines 15-18 on the SRAM chip will be ones and that maps to the address range 0x78000 - 0x7FFFF (or bank 15)
+Address lines 15 - 18 on the SRAM chip provide the memory division down to
+16x32K banks.  These 4 address lines are driven by 4 or gates where each line is
+or'd together with A15 from the CPU.  Thus, if the CPU is requesting data from
+the high half of memory (0x8000 - 0xFFFF), A15 will be a 1 and and a 1 OR x is
+always = 1.  In this case, all 4 lines 15-18 on the SRAM chip will be ones and
+that maps to the address range 0x78000 - 0x7FFFF (or bank 15)
 
-In the case where the CPU is requesting something from the low half of memory (0x0000 - 0x7FFF) then the other half of those OR Gates will determin which of the SRAM address lines 15-18 are enabled and so a bank is selected.
+In the case where the CPU is requesting something from the low half of memory
+(0x0000 - 0x7FFF) then the other half of those OR Gates will determin which of
+the SRAM address lines 15-18 are enabled and so a bank is selected.
 
-The GPIO OUT Latch (74HC374) holds the value for the bank selection bits in the 4 most significant bits of it's data.  Programmers can set the values of these 4 bits to set the current memory bank.
+The GPIO OUT Latch (74HC374) holds the value for the bank selection bits in the
+4 most significant bits of it's data.  Programmers can set the values of these
+4 bits to set the current memory bank.
