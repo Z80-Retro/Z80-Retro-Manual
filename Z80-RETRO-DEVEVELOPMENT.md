@@ -22,7 +22,7 @@ manager such as Ubuntu and Raspian OS.
 ```text
 $ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get install build-essential z80asm cpmtools
+$ sudo apt-get install build-essentials z80asm cpmtools
 ```
 
 Test that you are able to compile Z80 Assembly code by creating the following

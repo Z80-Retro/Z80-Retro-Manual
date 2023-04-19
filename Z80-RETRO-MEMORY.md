@@ -23,7 +23,7 @@ of RAM such that the CPU has access to a total of 64K of RAM at all times.
 | BANK | START   | END     | COMMENT / USAGE
 |------|---------|---------|----------------
 |15    | 0x78000 | 0x7FFFF | ALWAYS enabled for addresses 0x8000 to 0xFFFF
-|14    | 0x70000 | 0x77FFF |
+|14    | 0x70000 | 0x77FFF | Default Low bank assigned by firmware
 |13    | 0x68000 | 0x6FFFF |
 |12    | 0x60000 | 0x67FFF |
 |11    | 0x58000 | 0x5FFFF |
