@@ -87,6 +87,17 @@ as errors are fixed and refinements made.
 
 Versions will be released according to the  [Semantic Versioning Standard 2.0.0](https://semver.org/spec/v2.0.0.html).
 
+## Contributing
+
+If you find any errors or omissions you can raise an Issue on this GitHub
+repository.  Pull requests are also welcome and will be reviewed.
+
+If you do decide to raise a Pull Request, please be mindful of the how the
+documneted is formated.
+
+- GitHub style Markdown syntax
+- Code snippets must be formatted correctly.
+
 ## Authors
 
 - John Winans [https://github.com/johnwinans](https://github.com/johnwinans)
