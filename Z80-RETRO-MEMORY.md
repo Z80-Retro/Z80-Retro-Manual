@@ -45,7 +45,7 @@ Bank 15 is always enabled whenever the CPU addresses anything in the 0x8000 to
 The remaining 15 Banks (0-14) can be selected into the LOW Bank or addresses
 from (0x0000 to 0x7FFF).  For example, if bank 05 is selected and the CPU reads
 from address 0x100 that read will be made against address 0x28000 + 0x100 =
-0x28100 in the SRAM device.  The CPU has no idea that happened as from it's
+0x28100 in the SRAM device.  The CPU has no idea that happened as from its
 perspective it wants to read 0x100.  The memory select logic is deciding which
 bank of memory in the SRAM range to retreive that data from.
 
@@ -63,5 +63,5 @@ In the case where the CPU is requesting something from the low half of memory
 the SRAM address lines 15-18 are enabled and so a bank is selected.
 
 The GPIO OUT Latch (74HC374) holds the value for the bank selection bits in the
-4 most significant bits of it's data.  Programmers can set the values of these
+4 most significant bits of its data.  Programmers can set the values of these
 4 bits to set the current memory bank.

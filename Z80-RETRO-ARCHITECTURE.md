@@ -110,7 +110,7 @@ There are two daughter boards available for the Z80-Retro.
 
   ![Z80-Retro VDP Board](./assets/2068-Z80-TMS9118.png)
 
-  A graphics card for the Retro outputting a composit NTSC signal.  It has it's
+  A graphics card for the Retro outputting a composite NTSC signal.  It has its
   own video memory and can be controlled by the CPU over the IO Bus.
 
 ## Operating System
