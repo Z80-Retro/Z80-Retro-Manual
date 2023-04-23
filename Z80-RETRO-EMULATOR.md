@@ -108,7 +108,7 @@ Z80-Retro project, the author has named the emulator `2063` after the board
 number.
 
 ```text
-$ cd d 2063-Z80-cpm/filesystem
+$ cd d 2063-Z80-cpm
 $ ./2063 -r boot/firmware.bin -S filesystem/SDcard.img
 
 
