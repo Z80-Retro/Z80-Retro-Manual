@@ -31,6 +31,7 @@ so go ahead and bookmark this page right now.
 - Daughter Boards
   - [Z80-Retro VDP Build](./Z80-RETRO-VDP-BUILD.md)
   - [Z80-Retro VDP Software](./Z80-RETRO-VDP-SOFTWARE.md)
+- [Using the EtchedPixels EmulatorKit](./Z80-RETRO-EMULATOR.md)
 
 ## Document Conventions
 
