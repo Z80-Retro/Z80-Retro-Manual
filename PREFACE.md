@@ -18,7 +18,7 @@ consideration for the viewer's learning experience as John's Basement.
 Before you even have the supplies you need to get started, you really should
 join the Z80 Retro! Discord Server, introduce yourself, and join the community.
 
-Here are some photos of my build.
+Here are some photos of my build showing the Z80-Retro! with the VDP duaghter board.
 
 ![gallery01](./assets/PXL_20230402_044401816.jpg)
 
