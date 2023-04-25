@@ -28,6 +28,7 @@ so go ahead and bookmark this page right now.
   - [Z80-Retro Development Environment](./Z80-RETRO-DEVEVELOPMENT.md)
   - [Z80-Retro Firmware](./Z80-RETRO-FIRMWARE.md)
   - [Z80-Retro Software](./Z80-RETRO-SOFTWARE.md)
+  - [Z80-Retro File Transfer](./Z80-RETRO-FILE-XFER.md)
 - Daughter Boards
   - [Z80-Retro VDP Build](./Z80-RETRO-VDP-BUILD.md)
   - [Z80-Retro VDP Software](./Z80-RETRO-VDP-SOFTWARE.md)
