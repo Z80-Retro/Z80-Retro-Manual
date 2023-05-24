@@ -18,6 +18,14 @@ bank 14 at this time.
 The firmware is in the [2063-Z80-cpm](https://github.com/Z80-Retro/2063-Z80-cpm.git)
 repository.
 
+If you have not yet cloned the repository, do so now.
+
+```text
+$ git clone --recurse-submodules https://github.com/Z80-Retro/2063-Z80-cpm.git
+```
+
+Now CD into the repository and proceed.
+
 ```text
 $ cd 2063-Z80-cpm
 $ git checkout main
