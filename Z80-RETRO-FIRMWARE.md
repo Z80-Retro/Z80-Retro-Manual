@@ -36,7 +36,8 @@ total 108
 -rw-r--r-- 1  1498 Apr 18 11:28 firmware.sym
 ```
 
-The `firmware.bin` file is ready to be burned on to your flash chip now.
+The `firmware.bin` file is ready in the `boot/` directory to be burned on to
+your flash chip now.
 
 ## Installing Firmware
 
