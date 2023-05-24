@@ -43,6 +43,12 @@ echo w
 Edit `Make.local` with the correct build SD_HOSTNAME and SD_DEV for your system
 and SD card.  
 
+```text
+$ cd filesystem
+$ cp Make.default Make.local
+$ vim Make.local
+```
+
 Now you can run `make burn`
 
 ```text
