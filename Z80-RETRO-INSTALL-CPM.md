@@ -154,3 +154,32 @@ $ sudo dd if=filesystem/retro.img of=/dev/sdd1 bs=512 conv=sync
 Now eject your SD Card and try it out on the Retro.
 If everything works, you should see something like this on your terminal:
 
+```text
+##############################################################################
+Z80 Retro Board 2063.3
+      git: v20230312.1-16-gef7b3f7 2023-05-04 21:48:53 -0500
+    build: 2023-05-13 17:21:25+12:00
+
+Booting SD card partition 1
+
+Partition Table:
+C1BE: 00 04 01 04 83 05 82 06 00 08 00 00 00 00 04 00
+C1CE: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+C1DE: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+C1EE: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+Partition 1 starting block number: 00000800
+Partition 1 number of blocks:      00040000
+
+Loading 0x20 512-byte blocks into 0xC000 - 0xFFFF
+................................
+
+Z80 Retro BIOS Copyright (C) 2021 John Winans
+CP/M 2.2 Copyright (C) 1979 Digital Research
+  git: v20230317.1-0-g8bcf644 2023-03-17 22:20:02 -0500
+build: 2023-05-24 13:04:35+12:00
+
+NOTICE: rw_dmcache library installed.
+
+a>
+```
