@@ -31,10 +31,9 @@ so go ahead and bookmark this page right now.
   - [Z80-Retro File Transfer](./Z80-RETRO-FILE-XFER.md)
 - Daughter Boards
   - [Z80-Retro VDP Build](./Z80-RETRO-VDP-BUILD.md)
-  - [Z80-Retro VDP Software](./Z80-RETRO-VDP-SOFTWARE.md)
 - Emulation
   - [Using the EtchedPixels EmulatorKit](./Z80-RETRO-EMULATOR.md)
-- Git  and Collaboration
+- Git and Collaboration
   - [Z80-Retro Org and Git](./Z80-RETRO-ORG-AND-GIT.md)
 
 ## Document Conventions
