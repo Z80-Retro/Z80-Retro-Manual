@@ -104,7 +104,7 @@ documneted is formated.
 ## Authors
 
 - John Winans [https://github.com/johnwinans](https://github.com/johnwinans)
-- David Latham [https://github.com/johnwinans](https://github.com/linuxplayground)
+- David Latham [https://github.com/linuxplayground](https://github.com/linuxplayground)
 
 ## Copyright
 
