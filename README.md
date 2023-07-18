@@ -29,6 +29,7 @@ so go ahead and bookmark this page right now.
   - [Z80-Retro Firmware](./Z80-RETRO-FIRMWARE.md)
   - [Z80-Retro Install CP/M](./Z80-RETRO-INSTALL-CPM.md)
   - [Z80-Retro File Transfer](./Z80-RETRO-FILE-XFER.md)
+  - [Z80-Retro IO Ports](./Z80-RETRO-IO-PORTS.md)
 - Daughter Boards
   - [Z80-Retro VDP Build](./Z80-RETRO-VDP-BUILD.md)
 - Emulation
