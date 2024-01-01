@@ -15,7 +15,7 @@ This guide explains how to set up the SD Card with CP/M.
 The first step is to compile CP/M and create a binary image of the CP/M drive
 that you can copy to your SD Card.
 
-```text
+```bash
 $ cd 2063-Z80-cpm
 $ git checkout main
 $ make world
@@ -49,7 +49,7 @@ In summary the steps are as follows:
     When you insert a card into the SD Card slot on your system, you will find
     references to it in the output of a dmesg command call.
 
-    ```text
+    ```bash
     $ dmesg | tail -n 10
     [1544787.364682] sd 6:0:0:1: [sdd] 30916608 512-byte logical blocks: (15.8 GB/14.7 GiB)
     [1544787.365736] sd 6:0:0:1: [sdd] Write Protect is off
@@ -67,7 +67,7 @@ In summary the steps are as follows:
     safely verify by running `fdisk --list /dev/sdd` where `sdd` is the device
     name you found in the output of `dmesg`.
 
-    ```text
+    ```bash
     $ sudo fdisk --list /dev/sdd
     Disk /dev/sdd: 14.76 GiB, 15829303296 bytes, 30916608 sectors
     Disk model: Micro SD
@@ -88,7 +88,7 @@ In summary the steps are as follows:
 
 * Wipe out the master boot record
 
-   ```text
+   ```bash
    sudo dd if=/dev/zero of=/dev/sdd bs=512 count=10
    ```
 
@@ -97,7 +97,7 @@ In summary the steps are as follows:
     (Copied from the README-SD.md on the repo - but ensureing that the drive is
     correct for this author's system.)
 
-    ```text
+    ```bash
     sudo parted /dev/sdd
     (parted) mklabel msdos
     (parted) mkpart primary 1 135
@@ -146,7 +146,7 @@ your system.
 
 Copy `retro.img` to your partitioned SD Card using the dd command.
 
-```text
+```bash
 $ cd 2063-Z80-cpm
 $ sudo dd if=filesystem/retro.img of=/dev/sdd1 bs=512 conv=sync
 ```
@@ -154,7 +154,7 @@ $ sudo dd if=filesystem/retro.img of=/dev/sdd1 bs=512 conv=sync
 Now eject your SD Card and try it out on the Retro.
 If everything works, you should see something like this on your terminal:
 
-```text
+```bash
 ##############################################################################
 Z80 Retro Board 2063.3
       git: v20230312.1-16-gef7b3f7 2023-05-04 21:48:53 -0500

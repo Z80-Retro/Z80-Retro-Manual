@@ -19,7 +19,7 @@ manager such as Ubuntu and Raspian OS.
 
 ### Install Build Dependancies
 
-```text
+```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install build-essentials z80asm cpmtools
@@ -29,7 +29,7 @@ Test that you are able to compile Z80 Assembly code by creating the following
 source code file and assembling it.  If your code assembles and generates a hex
 file that matches the one listed, you know you are good to go.
 
-```text
+```bash
 $ cat hello.asm
 bdos:   equ     0x0005          ; BDOS Sys Request
 print:  equ     0x09            ; BDOS Print String function
@@ -46,20 +46,20 @@ message:
 
 Assemble with z80asm.  There should be no errors.
 
-```text
+```bash
 $ z80asm -o hello.com --list=hello.lst hello.asm
 ```
 
 Check that a listing file and a com file were generated.
 
-```text
+```bash
 $ ls
 hello.asm  hello.com  hello.lst
 ```
 
 Check the listing file.
 
-```text
+```bash
 $ cat hello.lst
 # File hello.asm
 0000                    bdos:   equ     0x0005          ; BDOS Sys Request
@@ -79,7 +79,7 @@ $ cat hello.lst
 
 Check the hex for the com file.
 
-```text
+```bash
 $ hexdump -C hello.com
 00000000  0e 09 11 09 01 cd 05 00  c9 0d 0a 48 65 6c 6c 6f  |...........Hello|
 00000010  2c 20 57 6f 72 6c 64 21  0a 0d 24                 |, World!..$|
@@ -93,7 +93,7 @@ If this all looks good, you can choose to delete the 3 hello files now.
 The best way to organize the code on your computer is to follow the same pattern
 as John does.  Set up a folder beneath which you will run all your projects.
 
-```text
+```bash
 $ cd $HOME          # Start out in your home directory.
 $ mkdir z80-retro   # Create a folder for your work
 $ cd z80-retro      # navigate to the new folder
@@ -104,7 +104,7 @@ always be the z80-retro directory created in this step.
 
 ### Clone Repositories
 
-```text
+```bash
 $ git clone --recurse-submodules https://github.com/Z80-Retro/2063-Z80-cpm.git
 $ git clone https://github.com/Z80-Retro/example-filesystem.git
 $ git clone https://github.com/Z80-Retro/Z80-Retro-disk-maker.git

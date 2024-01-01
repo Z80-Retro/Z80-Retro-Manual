@@ -26,46 +26,72 @@ away with thinking that John has absolutly acheived this goal.
 ## Components
 
 - CPU
+
   The CPU Board is built around the Zilog 8 bit Z80 CPU.  It has a 16 bit wide
   address bus which means it can address a maximum of 64kb of memory. It also
   has a seperate IO Bus used to access peripherals.
+
 - RAM
+
   512KB SRAM divided into 16 banks of 32KB each.
+
 - FLASH
+
   128KB FLASH ROM.  The CPU boots from the flash rom, which in turn is
   responsible for loading the first 32 blocks of storage from the SD Card into
   the TOP (Bank 15) bank of RAM and then jumping to the first address in that
   bank.
+
 - CTC
+
   This a general purpose counter timer.  It has a selection of programmable
   timers that are used to drive the baud rates for serial communication via the
   CON and AUX RS232 ports.
+
 - SIO
+
   A dial serial input output device which is connected to the RS232 chip.
+
 - RS232
+
   Respnosible for converting the TTL (5VT) logic signals into a the required
   +12VT / -12VT required for a standard RS232 connection.
+
 - IO Address Decoder
+
   These ICs convert requested IO Addresses into chip enable signlals for the
   input buffer and the two D-Type latch devices.
+
 - GP IO and Printer Out
+
   These chips are responsible for interfacing to the SD Card, Printer as well
   as holding the memory bank latch.
 - SD CARD
+
   Block storage device interfaced over bit-banged SPI via the GPIO system.
+
 - Power
-  Is provided through a USB Type B Connector on the board.  This connector only
+
+  Power is provided through a USB Type B Connector on the board.  This connector only
   provides Power.  There is also an onboard volage regulator that is used to
   provide 3.3VT to the SD Card adapter.
+
 - System Clock
+
   A 10MHz Full Can Oscilator provides the 10MHz signal to the Z80 CPU.
+
 - Baud Rate Clock
+
   Optionally divided by the CTC to allow for slower baud rates on the SIO.  By
   default, the Z80-Retro runs serial IO at 115200kbps.
+
 - CPU Connector
+
   This connector is a 40pin header that can be used to interface with the two
   daughter boards.  It provides all the same signals as those on the CPU.
+
 - Reset Circuit
+
   A momentary push button style switch that brings the RESET signal low while
   held down.  Used to COLD BOOT the CPU, reset the FLASH latch, and start
   everything up from scratch.

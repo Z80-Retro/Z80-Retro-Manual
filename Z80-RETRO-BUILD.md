@@ -40,12 +40,13 @@ the orange arrows on the image below.
 
 There are 5 sets of jumpers on the Z80-Retro marked in Yellow in the above
 image.
+
 <!-- markdownlint-disable -->
-|Silk Screen     |Function                                                           |Default Config
-|----------------|-------------------------------------------------------------------|---------------
-|J1 - CONSOLE (A)|Primary serial connection to host PC pin configuration.            |TX-PIN2,RX-PIN3
-|J8 - AUX (B)    |Used for auxilary serial connections                               |Unpopulated
-|J11 - SIO/CTC   |Used to set SIO or CTC as clock source for CONSOLE (A) and AUX (B) |Both set to X2
-|J12             |Used to select a different bank on the Flash.                      |Unpopulated
-|J9 - USER1      |General user input.  Assigned to bit 5 on GP Input.                |Unpopulated
+|Silk Screen      |Function                                                     |Default Config
+|---------------- |------------------------------------------------------------ |---------------
+|J1 - CONSOLE (A) |Primary serial connection to host PC                         |TX-PIN2,RX-PIN3
+|J8 - AUX (B)     |Used for auxilary serial connections                         |Unpopulated
+|J11 - SIO/CTC    |Set SIO or CTC as clock source for CONSOLE (A) and AUX (B)   |Both set to X2
+|J12              |Select a different bank on the Flash.                        |Unpopulated
+|J9 - USER1       |General user input.  Assigned to bit 5 on GP Input.          |Unpopulated
 <!-- markdownlint-restore -->

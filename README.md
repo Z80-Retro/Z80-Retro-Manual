@@ -1,3 +1,9 @@
+---
+title: "Z80-Retro! Manual"
+author: David Latham
+date: "2024-01-02"
+...
+
 # Z80-Retro-Manual
 
 So you've decided to build the Z80-Retro Single Board Computer! Welcome to the
@@ -25,7 +31,7 @@ so go ahead and bookmark this page right now.
   - [Z80-Retro Build](./Z80-RETRO-BUILD.md)
   - [Z80-Retro Memory](./Z80-RETRO-MEMORY.md)
 - Software
-  - [Z80-Retro Development Environment](./Z80-RETRO-DEVEVELOPMENT.md)
+  - [Z80-Retro Development Environment](./Z80-RETRO-DEVELOPMENT.md)
   - [Z80-Retro Firmware](./Z80-RETRO-FIRMWARE.md)
   - [Z80-Retro Install CP/M](./Z80-RETRO-INSTALL-CPM.md)
   - [Z80-Retro File Transfer](./Z80-RETRO-FILE-XFER.md)
