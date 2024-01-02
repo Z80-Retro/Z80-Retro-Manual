@@ -155,7 +155,6 @@ Now eject your SD Card and try it out on the Retro.
 If everything works, you should see something like this on your terminal:
 
 ```bash
-##############################################################################
 Z80 Retro Board 2063.3
       git: v20230312.1-16-gef7b3f7 2023-05-04 21:48:53 -0500
     build: 2023-05-13 17:21:25+12:00
