@@ -1,3 +1,4 @@
+<!--
 ---
 title: "Z80-Retro! Manual"
 author: David Latham, K3130440 (Tim)
@@ -6,6 +7,7 @@ header-includes: |
     \usepackage{sectsty}
     \sectionfont{\clearpage}
 ...
+-->
 
 # Z80-Retro-Manual
 
