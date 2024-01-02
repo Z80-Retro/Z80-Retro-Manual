@@ -1,14 +1,3 @@
-<!--
----
-title: "Z80-Retro! Manual"
-author: David Latham, K3130440 (Tim)
-date: "2024-01-02"
-header-includes: |
-    \usepackage{sectsty}
-    \sectionfont{\clearpage}
-...
--->
-
 # Z80-Retro-Manual
 
 So you've decided to build the Z80-Retro Single Board Computer! Welcome to the
