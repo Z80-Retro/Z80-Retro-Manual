@@ -2,7 +2,7 @@
 # Assumes you have installed pandoc and required libraries.
 # Tested on Ubuntu
 #
-# sudo apt install pandoc texlive-latex-recommended texlive-latex-extra
+# sudo apt install pandoc texlive-latex-recommended texlive-latex-extra texlive-fonts-extra
 #
 
 .PHONY: all
