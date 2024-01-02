@@ -31,7 +31,6 @@ all: clean
 		"Z80-RETRO-VDP-BUILD.md" \
 		"Z80-RETRO-EMULATOR.md" \
 		"Z80-RETRO-ORG-AND-GIT.md" \
-		"GNU Free Documentation License.md" \
 		"metadata.md"
 
 clean:
