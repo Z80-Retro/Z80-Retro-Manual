@@ -10,7 +10,7 @@
 all: clean
 	mkdir -pv artifacts
 	pandoc -s -o artifacts/z80-retro-manual.pdf \
-		--template ./eisvogel.latex \
+		--template pandoc_template/eisvogel.latex \
 		--listings \
 		-V table-use-row-colors=true \
 		-V papersize:a4paper \
@@ -31,7 +31,7 @@ all: clean
 		"Z80-RETRO-VDP-BUILD.md" \
 		"Z80-RETRO-EMULATOR.md" \
 		"Z80-RETRO-ORG-AND-GIT.md" \
-		"metadata.md"
+		"pandoc_template/metadata.md"
 
 clean:
 	rm -fr artifacts
