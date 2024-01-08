@@ -14,7 +14,7 @@ how to use xmodem to transfer regular binary files from then on.
 
 ## Compile XMODEM
 
-```text
+```bash
 $ sudo apt-get install srecord
 
 $ git clone https://github.com/Z80-Retro/xmodem80
@@ -22,7 +22,11 @@ $ git clone https://github.com/Z80-Retro/xmodem80
 $ cd xmodem80
 
 $ make
+```
 
+Check that your XR.hex file looks like this.
+
+```bash
 $ cat XR.hex
 :200100003A0200329E0232A10232A402ED737A0331040521A502CD5F023A5D00FE20CAF99F
 :2001200001115C003E00327C000E16CD05003CCAE1013E01327E033EFE327F033E14327CA5
@@ -76,7 +80,7 @@ When you are ready type: `pip xr.hex=con:` and then paste the hex data.
 When the paste is finished, go ahead and press `CTRL+Z` to indicate to pip that
 there is no more data to send.
 
-```text
+```bash
 a>pip xr.hex=con:
 <paste hex data>
 :200100003A0200329E0232A10232A402ED737A0331040521A502CD5F023A5D00FE20CAF99F
@@ -109,7 +113,7 @@ You can validate it's correct by typing `type xr.hex`.
 Next step is to convert the hex data into a `COM` file using the `LOAD`
 utiltity.
 
-```text
+```bash
 a>load xr.hex
 
 
@@ -128,7 +132,7 @@ Bytes Remaining On A: 7608k
 
 If you want to you can delete the original hex file.
 
-```text
+```bash
 a>era xr.hex
 ```
 
@@ -144,7 +148,7 @@ that was also compiled in the xmodem repository.
 
 Start with:
 
-```text
+```bash
 a> xr xs.com
 ```
 
@@ -164,7 +168,7 @@ Wait for the file to complete sending.
 
 Here is how the whole process looks inside CP/M.
 
-```text
+```bash
 a>xr xs.com
 
 CP/M XR - Xmodem receive v0.2 / SmallRoomLabs 2017
@@ -185,7 +189,7 @@ It's almost the same process as for sending files to CP/M from the host
 computer.  Just type `xs <filename to send>` and then initiate an XMODEM receive
 in the terminal program.
 
-```text
+```bash
 a>xs xr.com
 <initiate XMODEM receive, select path and name for file on host>
 CP/M XS - Xmodem Send v0.1 / SmallRoomLabs 2017
