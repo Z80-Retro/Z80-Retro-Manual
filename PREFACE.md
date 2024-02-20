@@ -7,12 +7,12 @@ The Z80-Retro is a unique retro project in that the level of detail provided
 by John is outstanding.  There are a few other creators who have done similar
 things.
 
-- Ben Eater - 8-bit cpu on breadboards and 6502 on breadboards.
+- Ben Eater - 8-bit CPU on breadboards and 6502 on breadboards.
 - James Sharman - Pipelined CPU.
 - Fabian Schuiki - Build a superscaler CPU
 
 Perhaps there are more, but none that take you through the journey of designing,
-building and programing a retro project that runs CP/M with the same careful
+building and programming a retro project that runs CP/M with the same careful
 consideration for the viewer's learning experience as John's Basement.
 
 Before you even have the supplies you need to get started, you really should

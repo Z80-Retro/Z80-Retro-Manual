@@ -21,7 +21,7 @@ with a modern twist.  It is built almost entirely of modern components.  The Z80
 Processors are still in production and all the logic ICs are still being made.
 The only components that are either new old stock or second hand stock are the
 VDP and the VDP Memory.  With the VDP being an _optional_ add-on, you could get
-away with thinking that John has absolutly acheived this goal.
+away with thinking that John has absolutely achieved this goal.
 
 ## Components
 
@@ -29,7 +29,7 @@ away with thinking that John has absolutly acheived this goal.
 
   The CPU Board is built around the Zilog 8 bit Z80 CPU.  It has a 16 bit wide
   address bus which means it can address a maximum of 64kb of memory. It also
-  has a seperate IO Bus used to access peripherals.
+  has a separate IO Bus used to access peripherals.
 
 - RAM
 
@@ -37,7 +37,7 @@ away with thinking that John has absolutly acheived this goal.
 
 - FLASH
 
-  128KB FLASH ROM.  The CPU boots from the flash rom, which in turn is
+  128KB FLASH ROM.  The CPU boots from the flash ROM, which in turn is
   responsible for loading the first 32 blocks of storage from the SD Card into
   the TOP (Bank 15) bank of RAM and then jumping to the first address in that
   bank.
@@ -54,8 +54,8 @@ away with thinking that John has absolutly acheived this goal.
 
 - RS232
 
-  Respnosible for converting the TTL (5VT) logic signals into a the required
-  +12VT / -12VT required for a standard RS232 connection.
+  Responsible for converting the TTL (5VT) logic signals into the +12VT / -12VT
+  required for a standard RS232 connection.
 
 - IO Address Decoder
 
@@ -73,7 +73,7 @@ away with thinking that John has absolutly acheived this goal.
 - Power
 
   Power is provided through a USB Type B Connector on the board.  This connector only
-  provides Power.  There is also an onboard volage regulator that is used to
+  provides Power.  There is also an onboard voltage regulator that is used to
   provide 3.3VT to the SD Card adapter.
 
 - System Clock

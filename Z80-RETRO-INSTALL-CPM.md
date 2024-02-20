@@ -1,8 +1,8 @@
-# Z80-Retro Software Setup Guide
+# Z80-Retro Software Set-up Guide
 
 [Back](./README.md)
 
-The Retro filesystem provided by the example filesystem GitHub repository
+The Retro file system provided by the example file system GitHub repository
 contains some useful utilities needed to get going.
 
 There are many other CP/M software resources on the internet that are usually
@@ -92,7 +92,7 @@ In summary the steps are as follows:
    sudo dd if=/dev/zero of=/dev/sdd bs=512 count=10
    ```
 
-* Create a a single partition on the SD Card.
+* Create a single partition on the SD Card.
 
     (Copied from the README-SD.md on the repo - but ensureing that the drive is
     correct for this author's system.)
@@ -128,21 +128,21 @@ The `make world` recipe compiles 3 main features:
 * filesystem/retro.img - BIOS and Base OS plus some other utilities. - Drive A.
 
 You could go ahead and copy just the BIOS + CP/M onto the SD Card, but without
-some of the extra utiltiies it could be difficult to get started.  Our
+some of the extra utilities it could be difficult to get started.  Our
 recommendation is to copy the `retro.img` which contains some of the example
 programs that you have seen John talk about in his videos.
 
 ### Using the included Makefile to copy drive.img to your SD Card
 
 The `filesystem/Makefile` does include a burn recipe that is designed to be run
-on a Raspberry Pi.  Sepcifically, John's Raspberry Pi.  This guide explains how
+on a Raspberry Pi.  Specifically, John's Raspberry Pi.  This guide explains how
 to work with your SD Card on your system using the Linux commands directly.
 
 If you wish to use the Makefile and the `make burn` recipe, you will need to
 alter the `burn` recipe to include the correct hostname and disk device name for
 your system.
 
-### Using native linux commands to copy the drive.img to your SD Card
+### Using native Linux commands to copy the drive.img to your SD Card
 
 Copy `retro.img` to your partitioned SD Card using the dd command.
 

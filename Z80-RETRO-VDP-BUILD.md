@@ -30,7 +30,7 @@ main board.  You can find the hardware build repository here: [2068-Z80-TMS9118]
 The same guidelines as noted in: [Z80-Retro Hardware Build Guide](./Z80-RETRO-BUILD.md)
 apply here.
 
-The readme in the hardware project provides a detailed BOM and information on
+The README in the hardware project provides a detailed BOM and information on
 where to source the TMS9118A processor from.  Note: You can _NOT_ use a TMS9918A
 in this build as it requires 8x4k RAM chips.  The TMS9118A only requires 2x16k
 ram chips which are easier to find and allow for a smaller board footprint.
@@ -38,18 +38,23 @@ ram chips which are easier to find and allow for a smaller board footprint.
 ## Mounting the board
 
 When you go to mount the board on on to the main board, pay careful attention to
-the clearance below.  Make sure that the crystal oscilators do not touch any
+the clearance below.  Make sure that the crystal oscillators do not touch any
 of the solder joints on the VDP board.
 
-The mouting holes on the right hand side of the VDP board are located such that
-standoffs can be installed to ensure a robust clearance below.  Alternatively,
+The mounting holes on the right hand side of the VDP board are located such that
+stand-offs can be installed to ensure a robust clearance below.  Alternatively,
 you can insert a layer of cardboard between the boards.
 
-Should you wish to deploy the Raspberry PI Programmer Board on top of the VDP, please check your clearances between the programmer and the components on VDP.  In particular, the elctrolytic capacitor at C7 could be too high.
+Should you wish to deploy the Raspberry PI Programmer Board on top of the VDP,
+please check your clearances between the programmer and the components on VDP.
+In particular, the electrolytic capacitor at C7 could be too high.
 
-This is discussed in the "Z80 Retro #71 - VDP Board Issues Posted to Github" video linked above.
+This is discussed in the "Z80 Retro #71 - VDP Board Issues Posted to Github"
+video linked above.
 
-In any event, due to the thermodynamics of these TMS chips discused in the next paragraph, you should not leave the programmer board permanently connected above the VDP.
+In any event, due to the thermodynamics of these TMS chips discussed in the next
+paragraph, you should not leave the programmer board permanently connected
+above the VDP.
 
 ## Heat
 
@@ -57,9 +62,9 @@ Up until now, everything you know and have learned about CMOS circuits will be
 that they should be cool to the touch when in operation.  This is not the case
 with the TMS9118A or the two '1416 64kbit RAM chips.  They will get quite warm.
 Not so hot as to burn you, but warm to the tough.  Keep the boards well
-ventillated and you will be fine.  If you want, to you can add some heatsinks to
-these 3 chips.  If you intend to install the Z80-Retro! into an enclousure, it
-is recommended to install heatsinks and even some active airflow.
+ventilated and you will be fine.  If you want, to you can add some heat sinks
+to these 3 chips.  If you intend to install the Z80-Retro! into an enclosure,
+it is recommended to install heat sinks and even some active airflow.
 
 ## As Built Image
 
@@ -70,13 +75,13 @@ _**NOTE:** I do not have J5 Populated._
 ![Detail of J6 not shunted and tall capacitor](assets/PXL_20230524_022209279.jpg)
 
 
-![Showing the plastic sandoffs](assets/PXL_20230524_022353120.jpg)
+![Showing the plastic sand-offs](assets/PXL_20230524_022353120.jpg)
 
 ## The Rev 2 Bodge
 
 The main reason for developing and including the TMS VDP Board is to play games
 on the Z80-Retro!  Games of any era rely heavily on accurate timing for both
-frame rendering and smooth gameplay.
+frame rendering and smooth game play.
 
 The typical way that this is achieved on the TMS9118A, is through observing the
 VSYNC Status of the device.  The TMS9118A generates a low going interrupt
@@ -109,7 +114,7 @@ As a workaround to this and still not using interrupts, we can apply a small
 bodge to the REV 1 VDP Board, which allows for programs to monitor the status
 of the interrupt PIN on the TMS9118A without reading the status flag.  Turns out
 the Joystick Buffers have some free bits available that are not used by the joy-
-stick ports.  We can assign one of the free pings on Joystick 0 (IO PORT A8) to
+stick ports.  We can assign one of the free pins on Joystick 0 (IO PORT A8) to
 this purpose.
 
 Now with the bodge applied, the test for vertical sync interrupt looks like
@@ -122,10 +127,11 @@ this:
     vdpStatusRegVal = IO_VDPLATCH;
   }
 ```
-This works because the Joystick Buffers have all of their ipnuts pulled up by
-10k resistors.  When the TMS pulls the line low, the reuslt of the bitmask will
-be 0 and we can _know_ that a vertical sync event has occurred and use this data
-to time everything in our games.
+
+This works because the Joystick Buffers have all of their inputs pulled up by
+10k resistors.  When the TMS pulls the line low, the result of the bit mask
+will be 0 and we can _know_ that a vertical sync event has occurred and use
+this data to time everything in our games.
 
 Here is an image of the bodge applied.
 

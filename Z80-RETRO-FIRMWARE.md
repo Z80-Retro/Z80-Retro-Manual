@@ -50,11 +50,11 @@ Typically, you won't need to program the flash that often unless you are
 intending to develop and test custom firmware.  The process for that is beyond
 the scope of this manual.
 
-### Using the Raspberry Pi Prograammer
+### Using the Raspberry Pi Programmer
 
 The main benefit of using this programmer board is that you can program your
 flash in-system.  That means that you don't need to pull the flash chip from the
-Z80-Retro to program it.  It takes control of the Z80 address and data busses
+Z80-Retro to program it.  It takes control of the Z80 address and data buses
 while it programs the flash.
 
 The process for this is described well in these videos.
@@ -69,6 +69,6 @@ Z80-Retro.  Be careful as it's very easy to bend the IC Pins when pulling chips
 out of their sockets.
 
 The manufacture supplied software for the XGPro runs on windows only.  There is
-an opensource project on [GitLab](https://gitlab.com/DavidGriffith/minipro) that
+an open source project on [GitLab](https://gitlab.com/DavidGriffith/minipro) that
 you can clone, build and use to program your chips.  Follow the usage
 instructions in that repository.

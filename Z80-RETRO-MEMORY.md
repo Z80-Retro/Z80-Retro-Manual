@@ -7,9 +7,9 @@
 - _Video Link: [Z80 Retro #7 - 512K Bank Selected Memory](https://www.youtube.com/watch?v=zrnZkAMAh6A)_
 
 As the Z80 processor has a 16bit wide address bus, it can only address 64K of
-memory.  This will include both the boot rom and the static ram combined.
+memory.  This will include both the boot ROM and the static ram combined.
 
-The Z80 Boot rom is designed to load the operating system from the SD Card and
+The Z80 Boot ROM is designed to load the operating system from the SD Card and
 save it into ram.  When that task is complete, it disables the ROM and enters
 e operating system.  Thus, and for the purposes of this section of the manual,
 any talk of memory will refer to memory in SRAM unless otherwise noted.
@@ -47,19 +47,19 @@ from (0x0000 to 0x7FFF).  For example, if bank 05 is selected and the CPU reads
 from address 0x100 that read will be made against address 0x28000 + 0x100 =
 0x28100 in the SRAM device.  The CPU has no idea that happened as from its
 perspective it wants to read 0x100.  The memory select logic is deciding which
-bank of memory in the SRAM range to retreive that data from.
+bank of memory in the SRAM range to retrieve that data from.
 
 ## The BANK Selection Logic
 
 Address lines 15 - 18 on the SRAM chip provide the memory division down to
 16x32K banks.  These 4 address lines are driven by 4 or gates where each line is
-or'd together with A15 from the CPU.  Thus, if the CPU is requesting data from
-the high half of memory (0x8000 - 0xFFFF), A15 will be a 1 and and a 1 OR x is
+ORed together with A15 from the CPU.  Thus, if the CPU is requesting data from
+the high half of memory (0x8000 - 0xFFFF), A15 will be a 1 and a 1 OR x is
 always = 1.  In this case, all 4 lines 15-18 on the SRAM chip will be ones and
 that maps to the address range 0x78000 - 0x7FFFF (or bank 15)
 
 In the case where the CPU is requesting something from the low half of memory
-(0x0000 - 0x7FFF) then the other half of those OR Gates will determin which of
+(0x0000 - 0x7FFF) then the other half of those OR Gates will determine which of
 the SRAM address lines 15-18 are enabled and so a bank is selected.
 
 The GPIO OUT Latch (74HC374) holds the value for the bank selection bits in the

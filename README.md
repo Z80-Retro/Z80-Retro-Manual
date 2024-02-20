@@ -82,7 +82,7 @@ Refresh your knowledge in these areas:
 - REQUIRED: Soldering through hole components
 - REQUIRED: Git workflows
 - REQUIRED: Linux and Bash
-- RECOMMENDED: Simple suface mount soldering techniques
+- RECOMMENDED: Simple surface mount soldering techniques
 
 ## Document Status
 
@@ -97,7 +97,7 @@ If you find any errors or omissions you can raise an Issue on this GitHub
 repository.  Pull requests are also welcome and will be reviewed.
 
 If you do decide to raise a Pull Request, please be mindful of the how the
-documneted is formated.
+documented is formatted.
 
 - GitHub style Markdown syntax
 - Code snippets must be formatted correctly.
