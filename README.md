@@ -17,6 +17,9 @@ through all the documents in the order provided below at least once before
 starting the project.  You might need to refer back to this guide multiple times
 so go ahead and bookmark this page right now.
 
+You can [download](https://github.com/Z80-Retro/Z80-Retro-Manual/releases/latest)
+the PDF version of this manual.
+
 ## Sections
 
 - [Preface](./PREFACE.md)
