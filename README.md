@@ -17,6 +17,9 @@ through all the documents in the order provided below at least once before
 starting the project.  You might need to refer back to this guide multiple times
 so go ahead and bookmark this page right now.
 
+You can [download](https://github.com/Z80-Retro/Z80-Retro-Manual/releases/latest)
+the PDF version of this manual.
+
 ## Sections
 
 - [Preface](./PREFACE.md)
@@ -82,7 +85,7 @@ Refresh your knowledge in these areas:
 - REQUIRED: Soldering through hole components
 - REQUIRED: Git workflows
 - REQUIRED: Linux and Bash
-- RECOMMENDED: Simple suface mount soldering techniques
+- RECOMMENDED: Simple surface mount soldering techniques
 
 ## Document Status
 
@@ -97,7 +100,7 @@ If you find any errors or omissions you can raise an Issue on this GitHub
 repository.  Pull requests are also welcome and will be reviewed.
 
 If you do decide to raise a Pull Request, please be mindful of the how the
-documneted is formated.
+documented is formatted.
 
 - GitHub style Markdown syntax
 - Code snippets must be formatted correctly.

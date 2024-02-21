@@ -2,7 +2,7 @@
 
 [Back](./README.md)
 
-The Etched Pixels Emulator kit supports the Z80-Retro! along with many other 
+The Etched Pixels Emulator kit supports the "Z80-Retro!" along with many other 
 homebrew projects.  
 
 ## Clone and Build
@@ -32,7 +32,7 @@ partitions on it.
 ### Create the ROM Image
 
 The emulator expects the firmware image to be exactly 16KB in size.  Use the
-`truncate` command in linux to do that.
+`truncate` command in Linux to do that.
 
 ```bash
 $ cd 2063-Z80-cpm/boot
@@ -50,10 +50,11 @@ Validate that the last line is 00004000 (0x4000 in hex) or 16K.
 
 #### !!! WARNING !!! ####
 
-**Ths process can damage your host filesystem if you get it wrong.  Make sure you only format the loop device after setting it up.**
+**This process can damage your host file system if you get it wrong.  Make sure
+you only format the loop device after setting it up.**
 
-This step is a bit more complicated and these steps are definately ONLY going
-to work on a linux host.
+This step is a bit more complicated and these steps are definitely ONLY going
+to work on a Linux host.
 
 ```bash
 $ cd 2063-Z80-cpm/filesystem
@@ -86,7 +87,7 @@ echo w  # Write changes
 ```
 
 Whew! Now that you have an image file with partitions on it, you can copy the
-`retro.img` CP/M filesystem on to it.
+`retro.img` CP/M file system on to it.
 
 ```bash
 $ sudo mkfs.msdos /dev/loop0p1
@@ -103,7 +104,8 @@ $ sudo losetup -d /dev/loop0
 You should now have a 500MB SDcard.img file.
 
 ## Running the Emulator
-To distinguish this Z80-Retro! project from a different
+
+To distinguish this "Z80-Retro!" project from a different
 Z80-Retro project, the author has named the emulator `2063` after the board
 number.
 

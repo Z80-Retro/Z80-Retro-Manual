@@ -10,7 +10,7 @@ your fork to this repository.
 then feel free to raise an Issue on Github. [https://github.com/Z80-Retro/Z80-Retro-Manual/issues](https://github.com/Z80-Retro/Z80-Retro-Manual/issues)
 
 If you need any help or clarification we are here to help.  You can find us in
-the Z80-Retro discord: [Z80 Retro! Discord permanant invitation link](https://discord.gg/jf73DRZvh5)
+the Z80-Retro discord: [Z80 Retro! Discord permanent invitation link](https://discord.gg/jf73DRZvh5)
 
 ## Style Guide
 

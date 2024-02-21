@@ -1,8 +1,8 @@
-# Transfering Files to CP/M
+# Transferring Files to CP/M
 
 [Back](./README.md)
 
-There are a few differnet ways one can transfer files to CP/M over the serial
+There are a few different ways one can transfer files to CP/M over the serial
 connection.
 
 - Transfer them using `pip` over the existing serial connection
@@ -10,7 +10,7 @@ connection.
 
 The following sections show how to compile XMODEM, transfer the binary in
 intel hex format and then load it as a com file inside CP/M.  We then cover
-how to use xmodem to transfer regular binary files from then on.
+how to use XMODEM to transfer regular binary files from then on.
 
 ## Compile XMODEM
 
@@ -57,22 +57,22 @@ $ cat XR.hex
 You can use `pip` to copy files on CP/M between user areas and drives.  You can
 also use it to transfer files from the host PC over the serial connection.
 
-This example shows how to copy the xmodem binary in intel hex format from the
+This example shows how to copy the XMODEM binary in intel hex format from the
 host PC to the A: drive.
 
-It assumes you have a copy of the xmodem utility in intel hex format already.
+It assumes you have a copy of the XMODEM utility in intel hex format already.
 
-First you will want to setup your terminal to use a 1msec delay between chars.
+First you will want to set up your terminal to use a 1 msec delay between chars.
 If you past at full speed, the terminal will not keep up and you will loose data.
 
 Set the Transmit delay to 1 msec/char and click New setting.  You might also
-want to set the msec/line setting to 1 in case you encouter erros with the
+want to set the msec/line setting to 1 in case you encounter errors with the
 process below.
 
 Minicom also as a way to do this.  Read the manual.  These instructions are for
-Terra Term on Windows.
+Teraterm on Windows.
 
-![Terraterm Settings](./assets/terraterm_1msec_delay.png)
+![Teraterm Settings](./assets/terraterm_1msec_delay.png)
 
 
 When you are ready type: `pip xr.hex=con:` and then paste the hex data.
@@ -152,7 +152,7 @@ Start with:
 a> xr xs.com
 ```
 
-The destination filename in this case will be xs.com.
+The destination file name in this case will be xs.com.
 
 Then use your serial tool to initiate an xmodem send.
 
@@ -164,7 +164,7 @@ Select the file you want to send.
 
 Wait for the file to complete sending.
 
-![sending dialog](./assets/terraterm_sending_dialog.png)
+![sending dialogue](./assets/terraterm_sending_dialog.png)
 
 Here is how the whole process looks inside CP/M.
 
