@@ -68,7 +68,7 @@ This method requires that you carefully pull the flash chip out of the
 Z80-Retro.  Be careful as it's very easy to bend the IC Pins when pulling chips
 out of their sockets.
 
-The manufacture supplied software for the XGPro runs on windows only.  There is
+The manufacturer-supplied software for the XGPro runs on windows only.  There is
 an open source project on [GitLab](https://gitlab.com/DavidGriffith/minipro) that
 you can clone, build and use to program your chips.  Follow the usage
 instructions in that repository.

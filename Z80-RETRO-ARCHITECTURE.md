@@ -11,7 +11,7 @@
 ![Formatted Block Diagram](./assets/z80_blockdiagram.drawio.png)
 
 The CPU Board is built around the Zilog 8 bit Z80 CPU.  It has a 16 bit wide
-address bus which means it can address a maximum of 64KB of memory.
+address bus which means it can address a maximum of 64kB of memory.
 
 ## Design Philosophy
 
@@ -28,16 +28,16 @@ away with thinking that John has absolutely achieved this goal.
 - CPU
 
   The CPU Board is built around the Zilog 8 bit Z80 CPU.  It has a 16 bit wide
-  address bus which means it can address a maximum of 64kb of memory. It also
-  has a separate IO Bus used to access peripherals.
+  address bus which means it can address a maximum of 64kB of memory. It also
+  has a separate I/O Bus used to access peripherals.
 
 - RAM
 
-  512KB SRAM divided into 16 banks of 32KB each.
+  512kB SRAM divided into 16 banks of 32kB each.
 
 - FLASH
 
-  128KB FLASH ROM.  The CPU boots from the flash ROM, which in turn is
+  128kB FLASH ROM.  The CPU boots from the flash ROM, which in turn is
   responsible for loading the first 32 blocks of storage from the SD Card into
   the TOP (Bank 15) bank of RAM and then jumping to the first address in that
   bank.
@@ -54,18 +54,19 @@ away with thinking that John has absolutely achieved this goal.
 
 - RS232
 
-  Responsible for converting the TTL (5VT) logic signals into the +12VT / -12VT
+  Responsible for converting the TTL (5V) logic signals into the +12V / -12V
   required for a standard RS232 connection.
 
-- IO Address Decoder
+- I/O Address Decoder
 
-  These ICs convert requested IO Addresses into chip enable signlals for the
+  These ICs convert requested I/O Addresses into chip enable signlals for the
   input buffer and the two D-Type latch devices.
 
-- GP IO and Printer Out
+- GP I/O and Printer Out
 
   These chips are responsible for interfacing to the SD Card, Printer as well
   as holding the memory bank latch.
+
 - SD CARD
 
   Block storage device interfaced over bit-banged SPI via the GPIO system.
@@ -74,7 +75,7 @@ away with thinking that John has absolutely achieved this goal.
 
   Power is provided through a USB Type B Connector on the board.  This connector only
   provides Power.  There is also an onboard voltage regulator that is used to
-  provide 3.3VT to the SD Card adapter.
+  provide 3.3V to the SD Card adapter.
 
 - System Clock
 
@@ -83,7 +84,7 @@ away with thinking that John has absolutely achieved this goal.
 - Baud Rate Clock
 
   Optionally divided by the CTC to allow for slower baud rates on the SIO.  By
-  default, the Z80-Retro runs serial IO at 115200kbps.
+  default, the Z80-Retro runs serial I/O at 115200kbps.
 
 - CPU Connector
 
@@ -122,14 +123,14 @@ There are two daughter boards available for the Z80-Retro.
 
   This optional programmer is designed to interface directly to the Z80-Retro
   CPU Board and a standard Raspberry Pi Header.  When this is connected and you
-  run the rquired tools, it will take direct control of the address and
-  databuses by asserting the BUSREQ signal to the CPU.  Once it has control of
-  the busses, it will program the 128kb FLASH ROM chip.
+  run the required tools, it will take direct control of the address and
+  data buses by asserting the BUSREQ signal to the CPU.  Once it has control of
+  the buses, it will program the 128kB FLASH ROM chip.
 
   It is also possible to program the FLASH ROM directly using another kind of
   programmer that supports the specific FLASH ROM device.
 
-  The programmer has on board voltage level shifting to protect the 3.3VT pins
+  The programmer has on board voltage level shifting to protect the 3.3V pins
   on the Raspberry Pi.
 
 ### TMS9118 VDP Graphics card
@@ -137,7 +138,7 @@ There are two daughter boards available for the Z80-Retro.
   ![Z80-Retro VDP Board](./assets/2068-Z80-TMS9118.png)
 
   A graphics card for the Retro outputting a composite NTSC signal.  It has its
-  own video memory and can be controlled by the CPU over the IO Bus.
+  own video memory and can be controlled by the CPU over the I/O Bus.
 
 ## Operating System
 

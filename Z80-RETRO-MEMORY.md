@@ -7,11 +7,11 @@
 - _Video Link: [Z80 Retro #7 - 512K Bank Selected Memory](https://www.youtube.com/watch?v=zrnZkAMAh6A)_
 
 As the Z80 processor has a 16bit wide address bus, it can only address 64K of
-memory.  This will include both the boot ROM and the static ram combined.
+memory.  This will include both the boot ROM and the static RAM combined.
 
 The Z80 Boot ROM is designed to load the operating system from the SD Card and
-save it into ram.  When that task is complete, it disables the ROM and enters
-e operating system.  Thus, and for the purposes of this section of the manual,
+save it into RAM.  When that task is complete, it disables the ROM and enters
+the operating system.  Thus, and for the purposes of this section of the manual,
 any talk of memory will refer to memory in SRAM unless otherwise noted.
 
 ## Banked Memory Layout

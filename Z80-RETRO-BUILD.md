@@ -20,7 +20,7 @@ the Sparkfun breakout board option.
 - Some people even use sockets for the resistor networks.  This does raise them
 up slightly but as resistor networks are more expensive, you might want to
 consider using a socket for them too.
-- Use ceramic MMCC Capacitors for the un-polarised capacitors.  An assortment
+- Use ceramic MLCC Capacitors for the un-polarised capacitors.  An assortment
 can be purchased from [Amazon](https://www.amazon.com/ceramic-capacitor-kit/s?k=ceramic+capacitor+kit).
 Don't use tantalum capacitors like I did in the RS232 circuit.  While they do
 work, they are polarised so care should be taken to install them correctly and

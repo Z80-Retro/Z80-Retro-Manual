@@ -114,7 +114,7 @@ As a workaround to this and still not using interrupts, we can apply a small
 bodge to the REV 1 VDP Board, which allows for programs to monitor the status
 of the interrupt PIN on the TMS9118A without reading the status flag.  Turns out
 the Joystick Buffers have some free bits available that are not used by the joy-
-stick ports.  We can assign one of the free pins on Joystick 0 (IO PORT A8) to
+stick ports.  We can assign one of the free pins on Joystick 0 (I/O PORT A8) to
 this purpose.
 
 Now with the bodge applied, the test for vertical sync interrupt looks like

@@ -55,11 +55,11 @@ If you're looking for a deep dive into Git concepts try:
 
 - _Video Link: [Git For Ages 4 and Up](https://www.youtube.com/watch?v=1ffBJ4sVUb4)_
 
-## Collaboration Using the Fork / Pull Reuqest Workflow
+## Collaboration Using the Fork / Pull Request Workflow
 
 We use the Fork model for dealing with pull requests.  The basic flow is:
 
-1. Fork the repository into your own Github account. (you only need to do this
+1. Fork the repository into your own GitHub account. (you only need to do this
    once)
 2. Clone your fork of the repository on to your workstation.
 3. Create a branch.

@@ -1,21 +1,21 @@
-# Z80-Retro IO Ports
+# Z80-Retro I/O Ports
 
 [Back](./README.md)
 
-This table provides a list of the assigned IO ports in the Z80 Retro and some
+This table provides a list of the assigned I/O ports in the Z80 Retro and some
 of the additional daughter boards including the VDP.
 
-Information checked against schematics and in the CPM IO library and example
+Information checked against schematics and in the CPM I/O library and example
 VDP Code.
 
 - [2063-z80.pdf](https://github.com/Z80-Retro/2063-Z80/blob/main/2063-Z80.pdf)
-- [2063-z80-cpm IO Lib](https://github.com/Z80-Retro/2063-Z80-cpm/blob/main/lib/io.asm)
+- [2063-z80-cpm I/O Lib](https://github.com/Z80-Retro/2063-Z80-cpm/blob/main/lib/io.asm)
 - [FLEADiP](https://github.com/dennowiggle/FLEADiP#z80-io-port-addresses)
 
 |Port Range | Programmed Port | Board                      |Description
 |---------- |---------------- |-------------------------   |------------
-|00-0F      | 00              | 2063-Z80                   | GP IO In
-|10-1F      | 10              | 2063-Z80                   | GP IO Out
+|00-0F      | 00              | 2063-Z80                   | GP I/O In
+|10-1F      | 10              | 2063-Z80                   | GP I/O Out
 |20-2F      | 20              | 2063-Z80                   | Printer Data Out
 |30-3F      | 30              | 2063-Z80                   | SIO Port A - Data
 |30-3F      | 31              | 2063-Z80                   | SIO Port B - Data

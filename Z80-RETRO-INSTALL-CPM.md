@@ -8,7 +8,7 @@ contains some useful utilities needed to get going.
 There are many other CP/M software resources on the internet that are usually
 compatible with the Z80-Retro!
 
-This guide explains how to set up the SD Card with CP/M.
+This guide explains how to set-up the SD Card with CP/M.
 
 ## Compile CP/M
 
@@ -94,7 +94,7 @@ In summary the steps are as follows:
 
 * Create a single partition on the SD Card.
 
-    (Copied from the README-SD.md on the repo - but ensureing that the drive is
+    (Copied from the README-SD.md on the repo - but ensuring that the drive is
     correct for this author's system.)
 
     ```bash
@@ -139,7 +139,7 @@ on a Raspberry Pi.  Specifically, John's Raspberry Pi.  This guide explains how
 to work with your SD Card on your system using the Linux commands directly.
 
 If you wish to use the Makefile and the `make burn` recipe, you will need to
-alter the `burn` recipe to include the correct hostname and disk device name for
+alter the `burn` recipe to include the correct host name and disk device name for
 your system.
 
 ### Using native Linux commands to copy the drive.img to your SD Card
