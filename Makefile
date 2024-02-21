@@ -34,4 +34,4 @@ all: clean
 		"pandoc_template/metadata.md"
 
 clean:
-	rm -fr artifacts
+	rm -fr artifacts/*.pdf
