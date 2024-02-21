@@ -1,4 +1,4 @@
-# Z80-Retro Software Set-up Guide
+# Z80-Retro Software Set Up Guide
 
 [Back](./README.md)
 
@@ -8,7 +8,7 @@ contains some useful utilities needed to get going.
 There are many other CP/M software resources on the internet that are usually
 compatible with the Z80-Retro!
 
-This guide explains how to set-up the SD Card with CP/M.
+This guide explains how to set up the SD Card with CP/M.
 
 ## Compile CP/M
 

@@ -2,11 +2,11 @@
 
 [Back](./README.md)
 
-In order to get set-up on your Retro you will need to compile the firmware, CP/M
+In order to get set up on your Retro you will need to compile the firmware, CP/M
 OS and user applications.  These are all z80 assembly to start with and some
 of the user programs later on are written in C.
 
-These instructions are to get your local development environment set-up in
+These instructions are to get your local development environment set up in
 preparation for the compilation steps later on.
 
 ## Linux
@@ -91,7 +91,7 @@ If this all looks good, you can choose to delete the 3 hello files now.
 ### Working Directory Set-Up
 
 The best way to organize the code on your computer is to follow the same pattern
-as John does.  Set-up a folder beneath which you will run all your projects.
+as John does.  Set up a folder beneath which you will run all your projects.
 
 ```bash
 $ cd $HOME          # Start out in your home directory.

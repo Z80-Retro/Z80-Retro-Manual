@@ -62,7 +62,7 @@ host PC to the A: drive.
 
 It assumes you have a copy of the XMODEM utility in intel hex format already.
 
-First you will want to set-up your terminal to use a 1 msec delay between chars.
+First you will want to set up your terminal to use a 1 msec delay between chars.
 If you past at full speed, the terminal will not keep up and you will loose data.
 
 Set the Transmit delay to 1 msec/char and click New setting.  You might also
