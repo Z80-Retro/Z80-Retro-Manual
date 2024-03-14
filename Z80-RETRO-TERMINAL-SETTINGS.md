@@ -7,8 +7,9 @@ configure your chosen serial terminal emulator on your PC.  Perhaps you are so
 retro, you have a _real_ serial terminal.  Either way, for the serial
 connection to work, you must configure it properly.
 
-The settings you need are: 181N
+The settings you need are: 115200 Baud 181N
 
+    - 115200 baud
     - 1 Start Bit
     - 8 Data Bits
     - 1 Stop Bit
