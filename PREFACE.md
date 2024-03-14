@@ -7,9 +7,9 @@ The Z80-Retro is a unique retro project in that the level of detail provided
 by John is outstanding.  There are a few other creators who have done similar
 things.
 
-- Ben Eater - 8-bit CPU on breadboards and 6502 on breadboards.
-- James Sharman - Pipelined CPU.
-- Fabian Schuiki - Build a superscaler CPU
+- Ben Eater - [8-bit CPU](https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU&pp=iAQB) on breadboards and 6502 on breadboards.
+- James Sharman - [Pipelined CPU](https://www.youtube.com/@weirdboyjim/).
+- Fabian Schuiki - [Build a superscaler CPU](https://www.youtube.com/watch?v=bwjMLyBU4RU&list=PLyR4neQXqQo5nPdEiMbaEJxWiy_UuyNN4&pp=iAQB)
 
 Perhaps there are more, but none that take you through the journey of designing,
 building and programming a retro project that runs CP/M with the same careful
