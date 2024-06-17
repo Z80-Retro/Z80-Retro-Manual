@@ -107,7 +107,7 @@ The Z80-Retro has 3 primary interfaces for communication with external devices.
   PC via an IDC to DB9 adapter cable.
 - RS232 AUX
   Used for auxillary serial communication.  The Baud rate of the AUX port can be
-  programatically controlled to support slower rates for odler devies.
+  programatically controlled to support slower rates for older devices.
   Typically, one would use this to connect to another serial device or modem.
 - Printer
   A 26pin IDC connector requiring an IDC to DB25 adapter cable to connecting to
