@@ -26,7 +26,8 @@ Don't use tantalum capacitors like I did in the RS232 circuit.  While they do
 work, they are polarised so care should be taken to install them correctly and
 they are sensitive to voltage spikes and the risk of them popping is high.
 **DON'T USE THEM.**
-They are censored in the image below.
+They are censored in the image below.  - See [ICL3232CPZ Capacitors](#icl3232cpz-capacitors)
+for an example of how they should be installed.
 - Make sure your oscillator cans are oriented correctly.  Pin 1 is pointed to by
 the orange arrows on the image below.
 - You can use the cheaper socket types for everything but the oscillator cans.
@@ -50,3 +51,16 @@ image.
 |J12              |Select a different bank on the Flash.                        |Unpopulated
 |J9 - USER1       |General user input.  Assigned to bit 5 on GP Input.          |Unpopulated
 <!-- markdownlint-restore -->
+
+## [ICL3232CPZ Capacitors](#icl3232cpz-capacitors)
+
+For the 6 capacitors sandwiched between the ICL3232CPZ (U12) and the SIO (U5) it
+can be a little tricky to know which value goes where.  Thanks to Bob("The
+Professor") on Discord for providing this illustration.
+
+![Annoted PCB Layout showing ICL3232
+capacitors](./assets/z80-retro-ic3232-capcitors.jpg)
+
+And here is a how they look installed.  Thanks again to Bob ("The Professor").
+
+![Cropped Closup Of ICL3232 capacitors installed](./assets/z80-retro-ic3232-asbuilt.jpg)
