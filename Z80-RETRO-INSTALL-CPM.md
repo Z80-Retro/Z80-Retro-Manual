@@ -28,11 +28,11 @@ $ ls -gG boot/firmware.bin
 $ ls -gG retro/retro.bin
 -rw-rw-r-- 1 15196 May 24 12:34 retro/retro.bin
 
-$ ls -gG filesystem/retro.img
--rw-rw-r-- 1 407552 May 24 13:04 filesystem/retro.img
+$ ls -gG filesystem/drive.img
+-rw-rw-r-- 1 409600 Jun 21 15:16 filesystem/drive.img
 ```
 
-After preparing the SD Card the `retro.bin` image can be copied to it.
+After preparing the SD Card the `drive.img` image can be copied to it.
 
 ## Preparing the SD Card
 
@@ -129,7 +129,7 @@ The `make world` recipe compiles 3 main features:
 
 You could go ahead and copy just the BIOS + CP/M onto the SD Card, but without
 some of the extra utilities it could be difficult to get started.  Our
-recommendation is to copy the `retro.img` which contains some of the example
+recommendation is to copy the `filesystem/drive.img` which contains some of the example
 programs that you have seen John talk about in his videos.
 
 ### Using the included Makefile to copy drive.img to your SD Card
@@ -144,11 +144,11 @@ your system.
 
 ### Using native Linux commands to copy the drive.img to your SD Card
 
-Copy `retro.img` to your partitioned SD Card using the dd command.
+Copy `drive.img` to your partitioned SD Card using the dd command.
 
 ```bash
 $ cd 2063-Z80-cpm
-$ sudo dd if=filesystem/retro.img of=/dev/sdd1 bs=512 conv=sync
+$ sudo dd if=filesystem/drive.img of=/dev/sdd1 bs=512 conv=sync
 ```
 
 Now eject your SD Card and try it out on the Retro.
