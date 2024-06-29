@@ -38,3 +38,28 @@ is:
         that this device can not be programmed with the Raspberry PI Programmer
         adapter board: [2065-Z80-programmer](https://github.com/Z80-Retro/2065-Z80-programmer)
 
+## Ribbon Cables
+
+The [2063-Z80 README](https://github.com/Z80-Retro/2063-Z80) document lists some
+sources for DIY Ribbon Cable assembly.  Should you prefer to purchase premade
+parts, here are some links current (as at 2024-06-29).  Should these links ever
+die, we have tried to provide valid search terms to find similar replacement
+items.
+
+Unfortunately, it's hard to tell from Amazon or Ebay listings what the pin
+mappings are.  These two specific links have been tested and reported to be
+known good and working by one of our community members in Discord.
+
+There is some configurability available through the J1 and J8 jumpber blocks on
+the 2063-Z80 board which allow for reassignment some of the rx and tx pins.
+Check the schematic carefully.
+
+- Serial Port Cables:
+    DB9 RS232 Serial Female to 10 Pin Female Ribbon Cable Connector Adapter
+    2.54mm Pitch 30cm Length
+    Length [https://www.amazon.com/dp/B07Q2WCJZF?th=1](https://www.amazon.com/dp/B07Q2WCJZF?th=1)
+
+- Printer Cable:
+    uxcell IDC Wire Flat Ribbon Cable DB25 Female to FC-26 Female Connector 
+    2.54mm Pitch 20cm Length, 2pcs [https://www.amazon.com/dp/B07SC1KJ5K](https://www.amazon.com/dp/B07SC1KJ5K)
+
