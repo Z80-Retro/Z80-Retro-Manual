@@ -72,3 +72,20 @@ The manufacturer-supplied software for the XGPro runs on windows only.  There is
 an open source project on [GitLab](https://gitlab.com/DavidGriffith/minipro) that
 you can clone, build and use to program your chips.  Follow the usage
 instructions in that repository.
+
+These instructions for the minipro tool on Linux are given and assume a working
+minipro installation.
+
+```bash
+$ minipro -s -p SST39SF020A -w 2063-Z80-cpm/boot/firmware.bin
+Found TL866CS 03.2.86 (0x256)
+Device code: 54416913
+Serial code: 58CD45F94BB765B9A1DF15A9
+Chip ID: 0xBFB6 OK
+Warning: Incorrect file size: 2463 (needed 262144)
+Erasing... 0.40Sec OK
+Writing Code... 0.19Sec OK
+Reading Code... 0.03Sec OK
+Verification OK
+```
+
