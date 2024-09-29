@@ -2,12 +2,12 @@
 
 [Back](./README.md)
 
-The Etched Pixels Emulator kit supports the "Z80-Retro!" along with many other 
+The Etched Pixels Emulator kit supports the "Z80-Retro!" along with many other
 homebrew projects.  
 
 ## Clone and Build
 
-Clone the Etched Pixels Emulator Kit github repository here from here: 
+Clone the Etched Pixels Emulator Kit github repository here from here:
 [https://github.com/EtchedPixels/EmulatorKit](https://github.com/EtchedPixels/EmulatorKit)
 
 ```bash
@@ -29,6 +29,22 @@ with the emulator.  As we don't have a real formatted SD Card to work with
 we need to create an SDcard.img file that will have the correctly formatted
 partitions on it.
 
+### Build the 2063-Z80-cpm Project
+
+First do a build of the whole project from the root directory of the
+2063-z80-cpm project.
+
+```bash
+$ cd 2063-Z80-cpm
+$ make clean
+$ make
+```
+
+This will create the following binaries needed for the next steps:
+
+- 2063-Z80-cpm/boot/firmware.bin
+- 2063-Z80-cpm/filesystem/drive.img
+
 ### Create the ROM Image
 
 The emulator expects the firmware image to be exactly 16KB in size.  Use the
@@ -36,7 +52,6 @@ The emulator expects the firmware image to be exactly 16KB in size.  Use the
 
 ```bash
 $ cd 2063-Z80-cpm/boot
-$ make
 $ truncate -s 16K firmware.bin
 $ hexdump -C firmware.bin| tail -n 3
 000009b0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
@@ -59,12 +74,23 @@ to work on a Linux host.
 ```bash
 $ cd 2063-Z80-cpm/filesystem
 
-$ make
-
 $ dd if=/dev/zero of=SDcard.img bs=1024 count=512000
 
 $ sudo losetup -Pf SDcard.img
+```
 
+At this point you want to verify the loopback device that was created by the
+`losetup` command.  You will need it in the next step.
+
+```bash
+$ sudo losetup --all | grep SDcard
+/dev/loop12: [2050]:7215475 (/home/davelatham/dev/retro/2063-Z80-cpm/filesystem/SDcard.img)
+```
+
+In my case here, the loopback device is `/dev/loop12` so that's what I will use.
+You must use the device name your system reports.
+
+```bash
 $ (
 echo n  # Add a new partition
 echo p  # Primary partition
@@ -83,22 +109,24 @@ echo t  # Partition Type
 echo 2  # Second partition
 echo 06 # Fat 16
 echo w  # Write changes
-) | sudo fdisk /dev/loop0
+) | sudo fdisk /dev/loop12
 ```
 
 Whew! Now that you have an image file with partitions on it, you can copy the
-`retro.img` CP/M file system on to it.
+`drive.img` CP/M file system on to it.
+
+You should still be in the `2063-Z80-cpm/filesystem` directory.
 
 ```bash
-$ sudo mkfs.msdos /dev/loop0p1
-$ sudo mkfs.msdos /dev/loop0p2
-$ sudo dd if=retro.img of=/dev/loop0p1 bs=512
+$ sudo mkfs.msdos /dev/loop12p1
+$ sudo mkfs.msdos /dev/loop12p2
+$ sudo dd if=drive.img of=/dev/loop12p1 bs=512
 ```
 
 Finally unmount the loopback disk.
 
 ```bash
-$ sudo losetup -d /dev/loop0
+$ sudo losetup -d /dev/loop12
 ```
 
 You should now have a 500MB SDcard.img file.
@@ -110,7 +138,7 @@ Z80-Retro project, the author has named the emulator `2063` after the board
 number.
 
 ```bash
-$ cd d 2063-Z80-cpm
+$ cd 2063-Z80-cpm
 $ ./2063 -r boot/firmware.bin -S filesystem/SDcard.img
 
 Z80 Retro Board 2063.3
