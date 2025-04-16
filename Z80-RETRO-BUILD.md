@@ -90,14 +90,14 @@ regulator underneath the board.
 
 List of Do Not Populate when _ONLY USING_ the SparkFun Breakout board.
 
-- J10 - SDCard socket
+- J2  - SDCard socket
 - R1  - R6 - Resistor divider network
 - R7  - MISO Pull-up resistor
 - C17 - Bypass Capacitor
 - U20 - Voltage regulator 5v down to 3.3v
 - C18, C19, C24 - Capacitors required by the voltage regulator.
 
-If you ever choose to populate the J10 SDCard socket, then you should also
+If you ever choose to populate the J2 SDCard socket, then you should also
 populate all the other related components from the above list.  You never know
 who, in the future, will be using your board and they might want to use that
 socket if it's present on the board.
