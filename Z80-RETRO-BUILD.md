@@ -84,6 +84,10 @@ The J10 connector is designed to accept a SparkFun Level Shifting microSD
 Breakout board.  This board will take care of level shifting between 5v and the
 3.3v required for the SDCard.
 
+There is no problem with populating all the components which would allow for
+using either the on-board SDCard socket (J2) _or_ the SparkFun breakout board.
+(J10).  You can _not_ use both at the same time.
+
 If your intention is to _NEVER USE_ the surface mounted J2 SDCard socket, then
 you don't need to populate the resistor divider network or the voltage
 regulator underneath the board.
