@@ -148,7 +148,7 @@ Copy `drive.img` to your partitioned SD Card using the dd command.
 
 ```bash
 $ cd 2063-Z80-cpm
-$ sudo dd if=filesystem/drive.img of=/dev/sdd1 bs=512 conv=sync
+$ sudo dd if=filesystem/drive.img of=/dev/sdd1 bs=512 conv=fsync
 ```
 
 Now eject your SD Card and try it out on the Retro.

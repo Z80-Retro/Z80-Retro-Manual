@@ -87,6 +87,9 @@ $ sudo losetup --all | grep SDcard
 /dev/loop12: [2050]:7215475 (/home/davelatham/dev/retro/2063-Z80-cpm/filesystem/SDcard.img)
 ```
 
+The Loopback Device Setup tool `losetup` can be found here:
+[https://man7.org/linux/man-pages/man8/losetup.8.html](https://man7.org/linux/man-pages/man8/losetup.8.html)
+
 In my case here, the loopback device is `/dev/loop12` so that's what I will use.
 You must use the device name your system reports.
 
