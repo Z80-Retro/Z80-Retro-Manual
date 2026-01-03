@@ -30,7 +30,7 @@ Once you have a working Linux environment (Pi or otherwise) you will need to ins
 ```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get install build-essential z80asm cpmtools
+$ sudo apt-get install build-essential z80asm cpmtools srecord
 ```
 
 Test that you are able to compile Z80 Assembly code by creating the following
@@ -94,7 +94,28 @@ $ hexdump -C hello.com
 0000001b
 ```
 
-If this all looks good, you can choose to delete the 3 hello files now.
+Before moving on, now is a good time to create a `hello.hex` (intel hex)
+version of the binary file.  We will use this later on in the manual to
+demonstrate how to transfer a file across the serial port using PIP.
+
+```bash
+srec_cat hello.com -binary -offset 0x0100 -address-length=2 -CRLF -output hello.hex -intel
+```
+
+The intel hex file should look like this:
+
+```bash
+$ cat hello.hex
+:1B0100000E09110901CD0500C90D0A48656C6C6F2C20576F726C64210A0D245C
+:00000001FF
+```
+
+If this all looks good, you can choose to delete the following 3 files.  Keep
+the `hello.hex` one.
+
+- hello.asm
+- hello.lst
+- hello.com
 
 ### Working Directory Set-Up
 
