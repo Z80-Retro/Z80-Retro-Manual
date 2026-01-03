@@ -15,6 +15,16 @@ The development environment is based on having access to a Linux based operating
 system.  These instructions cover Linux OS Variants based on the Debian package
 manager such as Ubuntu and Raspian OS.
 
+### Using a Raspberry PI?
+
+It is recommended to use a Raspberry Pi for interfacing with your Z80-Retro! so
+that your experience matches the videos as closley as possible.
+
+Detailed instructions for setting up your Raspberry Pi SDCard can be found at
+[https://github.com/johnwinans/raspberry-pi-install](https://github.com/johnwinans/raspberry-pi-install).
+
+Once you have a working Linux environment (Pi or otherwise) you will need to install the packages listed in the next section.
+
 ### Install Build Dependencies
 
 ```bash
