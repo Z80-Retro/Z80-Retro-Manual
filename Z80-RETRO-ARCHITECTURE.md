@@ -23,6 +23,10 @@ The only components that are either new old stock or second hand stock are the
 VDP and the VDP Memory.  With the VDP being an _optional_ add-on, you could get
 away with thinking that John has absolutely achieved this goal.
 
+**EDIT: Since this manual was first published, Zilog have discontinued the Z80
+CPU, SIO and CTC chips.  These too now need to be sourced from second hand
+suppliers.**
+
 ## Components
 
 - CPU
@@ -59,7 +63,7 @@ away with thinking that John has absolutely achieved this goal.
 
 - I/O Address Decoder
 
-  These ICs convert requested I/O Addresses into chip enable signlals for the
+  These ICs convert requested I/O Addresses into chip enable signals for the
   input buffer and the two D-Type latch devices.
 
 - GP I/O and Printer Out
@@ -79,12 +83,12 @@ away with thinking that John has absolutely achieved this goal.
 
 - System Clock
 
-  A 10MHz Full Can Oscilator provides the 10MHz signal to the Z80 CPU.
+  A 10MHz Full Can Oscillator provides the 10MHz signal to the Z80 CPU.
 
 - Baud Rate Clock
 
   Optionally divided by the CTC to allow for slower baud rates on the SIO.  By
-  default, the Z80-Retro runs serial I/O at 115200kbps.
+  default, the Z80-Retro runs serial I/O at 115200 baud.
 
 - CPU Connector
 
@@ -106,8 +110,8 @@ The Z80-Retro has 3 primary interfaces for communication with external devices.
   serial connection.  This is the default serial port to connect to your host
   PC via an IDC to DB9 adapter cable.
 - RS232 AUX
-  Used for auxillary serial communication.  The Baud rate of the AUX port can be
-  programatically controlled to support slower rates for older devices.
+  Used for auxiliary serial communication.  The Baud rate of the AUX port can be
+  programmatically controlled to support slower rates for older devices.
   Typically, one would use this to connect to another serial device or modem.
 - Printer
   A 26pin IDC connector requiring an IDC to DB25 adapter cable to connecting to
@@ -123,12 +127,14 @@ There are two daughter boards available for the Z80-Retro.
 
   This optional programmer is designed to interface directly to the Z80-Retro
   CPU Board and a standard Raspberry Pi Header.  When this is connected and you
-  run the required tools, it will take direct control of the address and
-  data buses by asserting the BUSREQ signal to the CPU.  Once it has control of
-  the buses, it will program the 128kB FLASH ROM chip.
+  run the required tools, it will take direct control of the address and data
+  buses by asserting the BUSREQ signal to the CPU.  Once it has control of the
+  buses, it will program the 128kB FLASH ROM chip.
 
   It is also possible to program the FLASH ROM directly using another kind of
-  programmer that supports the specific FLASH ROM device.
+  programmer that supports the specific FLASH ROM device.  For example the
+  [XGecu T48 (TL866II-3G)](https://xgecu.myshopify.com/collections/xgecu-t48-tl866ii-3g-programmer)
+  Programmer and the older TL866-II Plus both work.
 
   The programmer has on board voltage level shifting to protect the 3.3V pins
   on the Raspberry Pi.

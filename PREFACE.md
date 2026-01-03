@@ -28,6 +28,6 @@ Here are some photos of my build showing the Z80-Retro! with the VDP daughter bo
 
 Rock On!
 
-Dave Latham - aka (production-dave)
+Dave Latham - aka (productiondave)
 
 ![blinky](./assets/blinky.png)

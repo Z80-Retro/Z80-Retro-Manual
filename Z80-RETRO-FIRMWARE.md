@@ -9,7 +9,7 @@ In order to compile the firmware you must have completed the steps described in
 
 The firmware executes on the Flash after a system reset or at power on assuming
 the reset logic is working correctly.  Either way, its task is to copy the
-first 16KB from partition 1 of the SD Card into at 0xC000 then
+first 16KB from partition 1 of the SD Card into RAM at 0xC000 then
 jump to 0xC000 and begin execution from there.  The low memory bank is set to
 bank 14 at this time.
 

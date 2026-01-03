@@ -3,7 +3,7 @@
 [Back](./README.md)
 
 In order to get set up on your Retro you will need to compile the firmware, CP/M
-OS and user applications.  These are all z80 assembly to start with and some
+OS and user applications.  These are all Z80 assembly to start with and some
 of the user programs later on are written in C.
 
 These instructions are to get your local development environment set up in
@@ -15,9 +15,7 @@ The development environment is based on having access to a Linux based operating
 system.  These instructions cover Linux OS Variants based on the Debian package
 manager such as Ubuntu and Raspian OS.
 
-- [ ] TODO: Add a link to a guide for Windows Users and WSL.
-
-### Install Build Dependancies
+### Install Build Dependencies
 
 ```bash
 $ sudo apt-get update
@@ -29,7 +27,7 @@ Test that you are able to compile Z80 Assembly code by creating the following
 source code file and assembling it.  If your code assembles and generates a hex
 file that matches the one listed, you know you are good to go.
 
-```bash
+```text
 $ cat hello.asm
 bdos:   equ     0x0005          ; BDOS Sys Request
 print:  equ     0x09            ; BDOS Print String function
@@ -112,6 +110,6 @@ $ git clone https://github.com/Z80-Retro/Z80-Retro-disk-maker.git
 
 Note that the first repository requires that you supply the
 `--recurse-submodules` option to the clone command so that git will also
-fetch the source code for the CP/M OS.
+fetch the source code for the CP/M OS and XMODEM and additional utilities.
 
 You are now ready to proceed to [compiling and installing the firmware](./Z80-RETRO-FIRMWARE.md).

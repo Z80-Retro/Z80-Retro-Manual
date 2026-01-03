@@ -25,7 +25,7 @@ the PDF version of this manual.
 - [Preface](./PREFACE.md)
 - General
   - [Z80-Retro Architecture](./Z80-RETRO-ARCHITECTURE.md)
-  - [Z80-RETRO Alternative Parts](./Z80-RETRO-ALTERNATIVE-PARTS.md)
+  - [Z80-RETRO Alternative Parts](./Z80-RETRO-ALTERNATE-PARTS.md)
   - [Z80-Retro Build](./Z80-RETRO-BUILD.md)
   - [Z80-Retro Memory](./Z80-RETRO-MEMORY.md)
 - Software
@@ -81,8 +81,6 @@ Especially in cases where your own environment differs from the environment
 presented in the Johns Basement videos.
 
 Refresh your knowledge in these areas:
-
-- [ ] Add links to resources
 
 - REQUIRED: Soldering through hole components
 - REQUIRED: Git workflows
