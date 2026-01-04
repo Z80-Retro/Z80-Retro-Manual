@@ -9,6 +9,13 @@ of the user programs later on are written in C.
 These instructions are to get your local development environment set up in
 preparation for the compilation steps later on.
 
+## References
+
+The instructions on this page are lifted from the
+[Z80-Retro/setup](https://github.com/Z80-Retro/setup.git) repository on GitHub.
+
+- [https://github.com/Z80-Retro/setup/blob/main/retro-install.md](https://github.com/Z80-Retro/setup/blob/main/retro-install.md)
+
 ## Linux
 
 The development environment is based on having access to a Linux based operating
@@ -18,23 +25,26 @@ manager such as Ubuntu and Raspian OS.
 ### Using a Raspberry PI?
 
 It is recommended to use a Raspberry Pi for interfacing with your Z80-Retro! so
-that your experience matches the videos as closley as possible.
+that your experience matches the videos as closely as possible.
 
 Detailed instructions for setting up your Raspberry Pi SDCard can be found at
 [https://github.com/johnwinans/raspberry-pi-install](https://github.com/johnwinans/raspberry-pi-install).
 
-Once you have a working Linux environment (Pi or otherwise) you will need to install the packages listed in the next section.
+Once you have a working Linux environment (Pi or otherwise) you will need to
+install the packages listed in the next section.
 
 ### Install Build Dependencies
 
 ```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get install build-essential z80asm cpmtools srecord parted
+$ sudo apt-get install build-essential libi2c-dev z80asm cpmtools srecord parted
 ```
 
+### Test Assembler is installed correctly
+
 Test that you are able to compile Z80 Assembly code by creating the following
-source code file and assembling it.  If your code assembles and generates a hex
+source code file and assembling it.  If your code assembles and generates a binary
 file that matches the one listed, you know you are good to go.
 
 ```bash
@@ -52,11 +62,15 @@ message:
         db      0x0d,0x0a,'Hello, World!',0x0a,0x0d,'$'
 ```
 
+#### Assemble
+
 Assemble with z80asm.  There should be no errors.
 
 ```bash
 $ z80asm -o hello.com --list=hello.lst hello.asm
 ```
+
+#### Check Listing
 
 Check that a listing file and a com file were generated.
 
@@ -85,6 +99,8 @@ $ cat hello.lst
 011b
 ```
 
+#### Verify Binary
+
 Check the hex for the com file.
 
 ```bash
@@ -93,6 +109,8 @@ $ hexdump -C hello.com
 00000010  2c 20 57 6f 72 6c 64 21  0a 0d 24                 |, World!..$|
 0000001b
 ```
+
+#### Intel Hex
 
 Before moving on, now is a good time to create a `hello.hex` (intel hex)
 version of the binary file.  We will use this later on in the manual to
@@ -110,6 +128,8 @@ $ cat hello.hex
 :00000001FF
 ```
 
+#### Cleanup
+
 If this all looks good, you can choose to delete the following 3 files.  Keep
 the `hello.hex` one.
 
@@ -124,19 +144,24 @@ as John does.  Set up a folder beneath which you will run all your projects.
 
 ```bash
 $ cd $HOME          # Start out in your home directory.
-$ mkdir z80-retro   # Create a folder for your work
-$ cd z80-retro      # navigate to the new folder
+$ mkdir retro       # Create a folder for your work
+$ cd retro          # navigate to the new folder
 ```
 
 From now on this document will assume that your current working directory will
-always be the z80-retro directory created in this step.
+always be the `$HOME/retro` directory created in this step.
 
 ### Clone Repositories
 
 ```bash
-$ git clone --recurse-submodules https://github.com/Z80-Retro/2063-Z80-cpm.git
-$ git clone https://github.com/Z80-Retro/example-filesystem.git
-$ git clone https://github.com/Z80-Retro/Z80-Retro-disk-maker.git
+GIT_REPOS=http://github.com/Z80-Retro  # Use this for anonymous downloading (if you don't have a github account)
+#GIT_REPOS=git@github.com:Z80-Retro    # Uncomment & change this if you use ssh and/or have your own forks
+
+git clone --recurse-submodules $GIT_REPOS/2063-Z80-cpm.git
+git clone $GIT_REPOS/2065-Z80-programmer.git
+git clone $GIT_REPOS/example-filesystem.git
+git clone $GIT_REPOS/pcb-standoffs
+git clone $GIT_REPOS/2068-Z80-TMS9118
 ```
 
 Note that the first repository requires that you supply the
@@ -144,3 +169,5 @@ Note that the first repository requires that you supply the
 fetch the source code for the CP/M OS and XMODEM and additional utilities.
 
 You are now ready to proceed to [compiling and installing the firmware](./Z80-RETRO-FIRMWARE.md).
+
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->

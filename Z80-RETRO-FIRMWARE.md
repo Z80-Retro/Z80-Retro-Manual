@@ -61,6 +61,7 @@ The process for this is described well in these videos.
 
 - _Video Link:  [Z80 Retro #9 - FLASH Programmer](https://youtu.be/7DjiD5pvCqc)_
 - _Video Link: [Z80 Retro #10 - FLASH Programmer Software](https://youtu.be/w5LYCHml4A8)_
+- _Repo Link: [https://github.com/Z80-Retro/setup/blob/main/retro-install.md](https://github.com/Z80-Retro/setup/blob/main/retro-install.md)_
 
 ### Using an XGPro TL866ii Plus
 
@@ -89,3 +90,4 @@ Reading Code... 0.03Sec OK
 Verification OK
 ```
 
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->

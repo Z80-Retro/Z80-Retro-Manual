@@ -16,3 +16,5 @@ the Z80-Retro discord: [Z80 Retro! Discord permanent invitation link](https://di
 
 The Z80 Retro Manual is written in Github Markdown Syntax.  For details see:
 [https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->

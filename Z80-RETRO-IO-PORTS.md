@@ -41,3 +41,5 @@ VDP Code.
 |D0-DF      |                 |                            |
 |E0-EF      |                 |                            |
 |F0-FF      |                 |                            |
+
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->

@@ -7,7 +7,7 @@ software project.  As development of the project progresses, the various
 repositories are updated inside GitHub.  It helps to have a basic understanding
 of how to use Git in this context.
 
-## Z80-Retro Organisation
+## Z80-Retro Organization
 
 The Z80-Retro Org in Github contains all the repositories (including this one)
 that relate to building a "Z80-Retro!" of your own.  In order to maintain some
@@ -27,12 +27,12 @@ The sections below cover some of the basics.  For a more detailed introduction
 to Git, GitHub and version control systems in general, it is suggested you
 review these resources.
 
-### Git SCM:
+### Git SCM
 
   - [https://git-scm.com/docs/user-manual](https://git-scm.com/docs/user-manual)
   - [https://git-scm.com/docs/gittutorial](https://git-scm.com/docs/gittutorial)
 
-### GitHub:
+### GitHub
 
   - [https://docs.github.com/en](https://docs.github.com/en)
   - [https://docs.github.com/en/get-started/using-git](https://docs.github.com/en/get-started/using-git)
@@ -77,4 +77,6 @@ We use the Fork model for dealing with pull requests.  The basic flow is:
    branch of the upstream repository.
 9. You will need to then rebase your fork main branch to match upstream in
    readiness for future pull requests and to ensure your fork is aligned with
-   upstreeam.
+   upstream.
+
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->

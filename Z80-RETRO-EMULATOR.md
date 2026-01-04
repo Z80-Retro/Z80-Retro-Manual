@@ -8,17 +8,14 @@ homebrew projects.
 ## Clone and Build
 
 Clone the Etched Pixels Emulator Kit github repository here from here:
-[https://github.com/EtchedPixels/EmulatorKit](https://github.com/EtchedPixels/EmulatorKit)
+[https://codeberg.org/EtchedPixels/EmulatorKit](https://codeberg.org/EtchedPixels/EmulatorKit)
 
 ```bash
-$ cd EmulatorKit
+$ cd ${HOME}/retro/
+$ git clone https://codeberg.org/EtchedPixels/EmulatorKit
+$ cd ${HOME}/retro/EmulatorKit
 $ make 2063 2063_sdl2
 ```
-
-Compilation takes a while as it compiles all the emulators for the different
-supported projects.
-
-Now that you have the emulator binary you should be ready to go.
 
 ## Preparing the firmware and the SDCard image
 
@@ -45,10 +42,9 @@ This will create the following binaries needed for the next steps:
 
 ### Create the SD Card Image
 
-#### !!! WARNING !!! ####
-
-**This process can damage your host file system if you get it wrong.  Make sure
-you only format the loop device after setting it up.**
+> [!WARNING]
+> **WARNING** This process can damage your host file system if you get it
+> wrong.  Make sure you only format the loop device after setting it up.
 
 This step is a bit more complicated and these steps are definitely ONLY going
 to work on a Linux host.
@@ -56,48 +52,54 @@ to work on a Linux host.
 Start by making a new folder so that we don't overwrite anything important.
 
 ```bash
-$ mkdir emulator
-$ cd emulator
+$ mkdir ${HOME}/retro/emulator
+$ cd ${HOME}/retro/emulator
 ```
 
 Copy the `firmware.bin` file into the working directory and truncating it to 16KB.
 
 ```bash
-$ cd emulator
-$ cp ../../2063-Z80-cpm/boot/firmware.bin ./
+$ cd ${HOME}/retro/emulator
+$ cp ../2063-Z80-cpm/boot/firmware.bin ./
 $ truncate --size=16K firmware.bin
 ```
 
 Copy the `drive.img` to the working directory.
 
 ```bash
-$ cd emulator
-$ cp ../../2063-Z80-cpm/filesystem/drive.img ./
+$ cd ${HOME}/retro/emulator
+$ cp ../2063-Z80-cpm/filesystem/drive.img ./
 ```
 
 Create an empty `sdcard.img` file in the working directory.
 
 ```bash
-dd if=/dev/zero of=sdcard.img bs=1M count=129
+$ cd ${HOME}/retro/emulator
+$ dd if=/dev/zero of=sdcard.img bs=1M count=129
 ```
 
-Partition the sdcard image.
+Partition the SDCard image.
 
 ```bash
-parted -s sdcard.img mklabel msdos
-parted -s sdcard.img mkpart primary 1 135
+$ cd ${HOME}/retro/emulator
+$ parted -s sdcard.img mklabel msdos
+$ parted -s sdcard.img mkpart primary 1 135
 ```
 
-Mount the sdcard image into the kernel loopback device using the `losetup` command.  You must use sudo for this step.
+Mount the SDCard image into the kernel loopback device using the `losetup`
+command.  You must use sudo for this step.
 
 ```bash
-sudo losetup -Pf --show sdcard.img
+$ sudo losetup -Pf --show sdcard.img
 ```
 
-Observe which loopback device was created.  It is probably `/dev/loop0` but it might not be.  Whatever it is make sure the matching device name is used in the next step.
+Observe which loopback device was created.  It is probably `/dev/loop0` but it
+might not be.  Whatever it is make sure the matching device name is used in the
+next step.
 
 ```bash
-sudo chown ${USER}:${USER} /dev/loop0p1
+$ cd ${HOME}/retro/emulator
+$ sudo chown ${USER}:${USER} /dev/loop0p1
 ```
 
 Copy the `drive.img` into the first partition of the mounted sdcard.img at
@@ -105,7 +107,8 @@ Copy the `drive.img` into the first partition of the mounted sdcard.img at
 previous steps.
 
 ```bash
-sudo dd if=drive.img of=/dev/loop0p1 bs=512
+$ cd ${HOME}/retro/emulator
+$ sudo dd if=drive.img of=/dev/loop0p1 bs=512
 ```
 
 Now you have the sdcard image ready for use with the emulator.
@@ -119,7 +122,7 @@ number.
 For convenience make a couple of symlinks.
 
 ```bash
-$ cd emulator
+$ cd ${HOME}/retro/emulator
 $ ln -s <path/to/emulator-kit/>2063
 $ ln -s <path/to/emulator-kit/>2063_sdl2
 ```
@@ -127,6 +130,7 @@ $ ln -s <path/to/emulator-kit/>2063_sdl2
 Run the emulator in text only mode.
 
 ```bash
+$ cd ${HOME}/retro/emulator
 $ ./2063 -r firmware.bin -S sdcard.img
 ```
 
@@ -166,5 +170,7 @@ Run the emulator in text + graphics mode
 
 ```
 
-Exit the emulator by typing `CTRL+\`  or in graphics mode by closing the TMS9918 window.
+Exit the emulator by typing `CTRL+\`  or in graphics mode by closing the
+TMS9918 window.
 
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->

@@ -7,7 +7,7 @@ connection.
 
 - `pip` over the existing serial connection
 - `xmodem` over the existing serial connection
-- `nhget / nhput` over the auxiliary serial connection
+- TODO:  `nhget / nhput` over the auxiliary serial connection
 
 ## Use PIP to Transfer a File
 
@@ -46,14 +46,17 @@ You only need to perform this step when you want to paste data into the
 console.  This might be useful if you are pasting BASIC source code into BBC
 BASIC or MBASIC.
 
-Once you have your transmit delay set to 5 ms, you can now use PIP to copy the Intel hex data from the serial console into a file.
+Once you have your transmit delay set to 5 ms, you can now use PIP to copy the
+Intel hex data from the serial console into a file.
 
-You might also need to instruct Minicom to add a LINEFEED and CARRIAGE RETURN.  Do this with:
+You might also need to instruct Minicom to add a LINEFEED and CARRIAGE RETURN.
+Do this with:
 
 - Linefeed: `<CTRL+A> A`
 - Carriage Return: `<CTRL+A> U`
 
-Look at the bottom left of the window and you will see if the commands have worked or not.  You repeat the same steps to disable them later.
+Look at the bottom left of the window and you will see if the commands have
+worked or not.  You repeat the same steps to disable them later.
 
 
 ```text
@@ -158,7 +161,4 @@ a>
 The `xs.com` utility is for receiving files from CP/M to the host computer and
 works in a very similar manner to `xr.com`.
 
-## Use NHGET and NHPUT
-
-### TODO: Need to add instructions for nhtools.  Most likely will be a new section.
-
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->

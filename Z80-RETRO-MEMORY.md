@@ -65,3 +65,5 @@ the SRAM address lines 15-18 are enabled and so a bank is selected.
 The GPIO OUT Latch (74HC374) holds the value for the bank selection bits in the
 4 most significant bits of its data.  Programmers can set the values of these
 4 bits to set the current memory bank.
+
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->

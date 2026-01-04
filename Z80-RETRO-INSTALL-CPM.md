@@ -186,3 +186,4 @@ If you want additional drives, have a look at
 [https://github.com/Z80-Retro/example-filesystem](https://github.com/Z80-Retro/example-filesystem)
 for instructions on how set them up and flash them on to the SDCard.
 
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->

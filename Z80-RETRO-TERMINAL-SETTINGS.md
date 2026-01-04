@@ -105,4 +105,4 @@ Make sure the following settings are configured:
 - Parity = None
 - Flow control = None
 
-
+<!-- vim: set tw=80 cc=80 ft=markdown et: -->
