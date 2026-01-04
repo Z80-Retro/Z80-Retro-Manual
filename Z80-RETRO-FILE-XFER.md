@@ -5,196 +5,156 @@
 There are a few different ways one can transfer files to CP/M over the serial
 connection.
 
-- Transfer them using `pip` over the existing serial connection
-- Transfer them using `xmodem` over the existing serial connection
+- `pip` over the existing serial connection
+- `xmodem` over the existing serial connection
+- `nhget / nhput` over the auxiliary serial connection
 
-The following sections show how to compile XMODEM, transfer the binary in
-intel hex format and then load it as a com file inside CP/M.  We then cover
-how to use XMODEM to transfer regular binary files from then on.
+## Use PIP to Transfer a File
 
-## Compile XMODEM
+In the [Z80-Retro Development Environment](./Z80-RETRO-DEVELOPMENT.md) you made
+a small CP/M "hello world" application.  At the end of that process you created
+an Intel hex version of the `hello.com` binary called `hello.hex`.
 
-```bash
-$ sudo apt-get install srecord
+We can use the installed `pip.com` application to transfer intel hex files.
+Before trying, you will need to configure your terminal to delay between each
+character you send.  This is because your host machine can send the data much
+faster than the Z80-Retro! can process it.
 
-$ git clone https://github.com/Z80-Retro/xmodem80
+In Minicom you can set the character delay as follow:
 
-$ cd xmodem80
+While in Minicom, type `<CTRL+A> T` and the following popup will appear.
 
-$ make
+```text
++---------------[Terminal settings]----------------+
+|                                                  |
+| A -      Terminal emulation : VT102              |
+| B -     Backspace key sends : BS                 |
+| C -          Status line is : enabled            |
+| D -   Newline tx delay (ms) : 0                  |
+| E -          ENQ answerback : Minicom2.8         |
+| F - Character tx delay (ms) : 0                  |
+|    Change which setting?                         |
+|                                                  |
++--------------------------------------------------+
 ```
 
-Check that your XR.hex file looks like this.
+Press `F` to change the `Character tx delay (ms) : 0` to 5.  Backspace to
+delete the `0`, `5` to set the value and `<ENTER> <ENTER>` to return to your
+Minicom session.
 
-```bash
-$ cat XR.hex
-:200100003A0200329E0232A10232A402ED737A0331040521A502CD5F023A5D00FE20CAF99F
-:2001200001115C003E00327C000E16CD05003CCAE1013E01327E033EFE327F033E14327CA5
-:20014000033E05CD2A02D25801217C0335CA02020E15CDA202C34101FE04CAC701FE18CA85
-:200160000802FE01C241012180037723E50683C53E01CD2A02C1E17723E510F3E12183031D
-:2001800006803E00862310FCAEC202023A7E034F3A8103B9C202023A7F034F3A8203B9C2E6
-:2001A00002021183030E1ACD0500115C000E15CD0500FE00C2F301217E0334217F03350ED8
-:2001C00006CDA202C33C01CD0E020E06CDA202212703CD5F02CD7702212F03CD5F02C3251E
-:2001E00002214803CD5F02CD7702217703CD5F02C3250221DA02C31702216403CD5F02C318
-:20020000250221F502C31702210C03C31702115C000E10CD0500C9CD5F02CD0E02115C0019
-:200220000E13CD0500ED7B7A03C947C506FFC506FFC5CD9C02FE00C257022A00002A0000A5
-:200240002A00002A00002A00002A0000C110E2C110DCC110D637C9CD9F02C1C1C1B7C97E40
-:20026000B7C84FCDA20223C35F02C57E4FFE20C4A202C12310F4C93A5C00B7CA8902C64087
-:200280004FCDA2020E3ACDA202215D000608CD6A020E2ECDA2020603CD6A02C9C306FFC3DD
-:2002A00009FFC30CFF43502F4D205852202D20586D6F64656D2072656365697665207630EF
-:2002C0002E32202F20536D616C6C526F6F6D4C61627320323031370D0A000D0A4661696CA3
-:2002E00065642077726974696E6720746F206469736B0D0A000D0A5472616E736D73736951
-:200300006F6E206661696C65640D0A000D0A5472616E736D697373696F6E2063616E636529
-:200320006C6C65640D0A000D0A46696C6520002072656365697665642073756363657373CE
-:2003400066756C6C790D0A004661696C6564206372656174696E672066696C65206E616D8C
-:200360006564200046696C656E616D6520657870656365640D0A000D0A0000000000000047
-:0405000000000000F7
+You only need to perform this step when you want to paste data into the
+console.  This might be useful if you are pasting BASIC source code into BBC
+BASIC or MBASIC.
+
+Once you have your transmit delay set to 5 ms, you can now use PIP to copy the Intel hex data from the serial console into a file.
+
+You might also need to instruct Minicom to add a LINEFEED and CARRIAGE RETURN.  Do this with:
+
+- Linefeed: `<CTRL+A> A`
+- Carriage Return: `<CTRL+A> U`
+
+Look at the bottom left of the window and you will see if the commands have worked or not.  You repeat the same steps to disable them later.
+
+
+```text
+a>pip hello.hex=con:
+
+<PASTE INTEL HEX DATA>
+:1B0100000E09110901CD0500C90D0A48656C6C6F2C20576F726C64210A0D245C
+:00000001FF<ENTER>
+<CTRL+Z>
+
+a>type hello.hex
+
+
+:1B0100000E09110901CD0500C90D0A48656C6C6F2C20576F726C64210A0D245C
 :00000001FF
+
+
+a>
 ```
 
-## Copy XMODEM to the Z80-Retro! Using PIP
+Its now safe to reset your Linefeed, Carriage return and transmit delay values.
 
-You can use `pip` to copy files on CP/M between user areas and drives.  You can
-also use it to transfer files from the host PC over the serial connection.
+Note the `<ENTER>` and `CTRL+Z` at the end.  You need to hit `CTRL+Z` to let
+PIP know that you are finished.
 
-This example shows how to copy the XMODEM binary in intel hex format from the
-host PC to the A: drive.
+Once you have created the Intel hex file on the CP/M drive, you can convert it
+to a `.com` file with:
 
-It assumes you have a copy of the XMODEM utility in intel hex format already.
-
-First you will want to set up your terminal to use a 1 msec delay between chars.
-If you past at full speed, the terminal will not keep up and you will loose data.
-
-Set the Transmit delay to 1 msec/char and click New setting.  You might also
-want to set the msec/line setting to 1 in case you encounter errors with the
-process below.
-
-Minicom also as a way to do this.  Read the manual.  These instructions are for
-Teraterm on Windows.
-
-![Teraterm Settings](./assets/terraterm_1msec_delay.png)
-
-
-When you are ready type: `pip xr.hex=con:` and then paste the hex data.
-
-When the paste is finished, go ahead and press `CTRL+Z` to indicate to pip that
-there is no more data to send.
-
-```bash
-a>pip xr.hex=con:
-<paste hex data>
-:200100003A0200329E0232A10232A402ED737A0331040521A502CD5F023A5D00FE20CAF99F
-:2001200001115C003E00327C000E16CD05003CCAE1013E01327E033EFE327F033E14327CA5
-:20014000033E05CD2A02D25801217C0335CA02020E15CDA202C34101FE04CAC701FE18CA85
-:200160000802FE01C241012180037723E50683C53E01CD2A02C1E17723E510F3E12183031D
-:2001800006803E00862310FCAEC202023A7E034F3A8103B9C202023A7F034F3A8203B9C2E6
-:2001A00002021183030E1ACD0500115C000E15CD0500FE00C2F301217E0334217F03350ED8
-:2001C00006CDA202C33C01CD0E020E06CDA202212703CD5F02CD7702212F03CD5F02C3251E
-:2001E00002214803CD5F02CD7702217703CD5F02C3250221DA02C31702216403CD5F02C318
-:20020000250221F502C31702210C03C31702115C000E10CD0500C9CD5F02CD0E02115C0019
-:200220000E13CD0500ED7B7A03C947C506FFC506FFC5CD9C02FE00C257022A00002A0000A5
-:200240002A00002A00002A00002A0000C110E2C110DCC110D637C9CD9F02C1C1C1B7C97E40
-:20026000B7C84FCDA20223C35F02C57E4FFE20C4A202C12310F4C93A5C00B7CA8902C64087
-:200280004FCDA2020E3ACDA202215D000608CD6A020E2ECDA2020603CD6A02C9C306FFC3DD
-:2002A00009FFC30CFF43502F4D205852202D20586D6F64656D2072656365697665207630EF
-:2002C0002E32202F20536D616C6C526F6F6D4C61627320323031370D0A000D0A4661696CA3
-:2002E00065642077726974696E6720746F206469736B0D0A000D0A5472616E736D73736951
-:200300006F6E206661696C65640D0A000D0A5472616E736D697373696F6E2063616E636529
-:200320006C6C65640D0A000D0A46696C6520002072656365697665642073756363657373CE
-:2003400066756C6C790D0A004661696C6564206372656174696E672066696C65206E616D8C
-:200360006564200046696C656E616D6520657870656365640D0A000D0A0000000000000047
-:0405000000000000F7<CTRL+Z>
-```
-
-Now you have a new `xr.hex` file on your disk.
-
-You can validate it's correct by typing `type xr.hex`.
-
-Next step is to convert the hex data into a `COM` file using the `LOAD`
-utiltity.
-
-```bash
-a>load xr.hex
-
+```text
+a>load hello
 
 FIRST ADDRESS 0100
-LAST  ADDRESS 0503
-BYTES READ    0284
-RECORDS WRITTEN 09
-
-a>stat xr.com
-
-
- Recs  Bytes  Ext Acc
-    9     2k    1 R/W A:XR.COM
-Bytes Remaining On A: 7608k
+LAST  ADDRESS 011A
+BYTES READ    001B
+RECORDS WRITTEN 01
 ```
 
-If you want to you can delete the original hex file.
+And test it with:
 
-```bash
-a>era xr.hex
+```text
+a>hello
+
+Hello, World!
 ```
+
+A far more convenient method of transferring files is to use the included
+Xmodem utility.
 
 ## Use XMODEM to Transfer a File
-
-*NOTE: I don't have minicom working to test this using minicom.*
-
-- [ ] TODO: Convince someone else to write the minicom process.
 
 The `xr.com` utility will let you transfer any files at a faster rate across
 the serial connection.  This example shows how to load the `xs.com` binary file
 that was also compiled in the xmodem repository.
 
-Start with:
-
-```bash
-a> xr xs.com
+```text
+a>xr hello.hex
+CP/M XR - Xmodem receive v0.2
+Checking for previous file... no file found
+Start transfer
 ```
 
-The destination file name in this case will be xs.com.
+Press `<CTRL+A> S` to send a file.  The Upload popup will appear.  Use the
+arrow keys to select `Xmodem` and press <ENTER>.
 
-Then use your serial tool to initiate an xmodem send.
-
-![initiate transfer](./assets/terraterm_xmodem_send.png)
-
-Select the file you want to send.
-
-![select file](./assets/terraterm_select_file.png)
-
-Wait for the file to complete sending.
-
-![sending dialogue](./assets/terraterm_sending_dialog.png)
-
-Here is how the whole process looks inside CP/M.
-
-```bash
-a>xr xs.com
-
-CP/M XR - Xmodem receive v0.2 / SmallRoomLabs 2017
-<initiate transfer as shown in the pictures>
-File XS.COM received successfully
-
-a>stat xs.com
-
-
- Recs  Bytes  Ext Acc
-    5     2k    1 R/W A:XS.COM
-Bytes Remaining On A: 7608k
+```text
++-[Upload]--+
+| zmodem    |
+| ymodem    |
+| xmodem    |
+| kermit    |
+| ascii     |
++-----------+
 ```
 
-The `xs.com` utiltiy is for receiving files from CP/M to the host computer.
+Then use the arrow keys to navigate the host machine filesystem to find the
+file you want to upload.  In this case `hello.hex`.
 
-It's almost the same process as for sending files to CP/M from the host
-computer.  Just type `xs <filename to send>` and then initiate an XMODEM receive
-in the terminal program.
+- Arrow keys to move up and down.
+- `<SPACE>` `<SPACE>` to enter a directory.
+- `<SPACE>` to select the file you want.
+- `<ENTER>` to confirm uploading the file.
 
-```bash
-a>xs xr.com
-<initiate XMODEM receive, select path and name for file on host>
-CP/M XS - Xmodem Send v0.1 / SmallRoomLabs 2017
+A dialog will appear showing the file being transferred along with some
+statistics about the transfer.
 
-File XR.COM sent successfully
+```text
++----------------[xmodem upload - Press CTRL-C to quit]----------------+
+|Sending HELLO.HEX, 0 blocks: Give your local XMODEM receive command no|
+|w.                                                                    |
+|Bytes Sent:    128   BPS:86                                           |
+|                                                                      |
+|Transfer complete                                                     |
+|                                                                      |
+| READY: press any key to continue...                                  |
++----------------------------------------------------------------------+
+
+File HELLO.HEX received successfully
+
+a>
 ```
 
-The file will exist at the file path and name.
+The `xs.com` utility is for receiving files from CP/M to the host computer and
+works in a very similar manner to `xr.com`.
+
