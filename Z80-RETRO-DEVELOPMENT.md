@@ -30,14 +30,14 @@ Once you have a working Linux environment (Pi or otherwise) you will need to ins
 ```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get install build-essential z80asm cpmtools srecord
+$ sudo apt-get install build-essential z80asm cpmtools srecord parted
 ```
 
 Test that you are able to compile Z80 Assembly code by creating the following
 source code file and assembling it.  If your code assembles and generates a hex
 file that matches the one listed, you know you are good to go.
 
-```text
+```bash
 $ cat hello.asm
 bdos:   equ     0x0005          ; BDOS Sys Request
 print:  equ     0x09            ; BDOS Print String function

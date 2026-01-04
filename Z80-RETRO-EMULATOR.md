@@ -12,9 +12,7 @@ Clone the Etched Pixels Emulator Kit github repository here from here:
 
 ```bash
 $ cd EmulatorKit
-$ make
-< compilation takes a while>
-$ cp 2063 ../2063-Z80-cpm
+$ make 2063 2063_sdl2
 ```
 
 Compilation takes a while as it compiles all the emulators for the different
@@ -22,7 +20,7 @@ supported projects.
 
 Now that you have the emulator binary you should be ready to go.
 
-## Preparing the firmware and the sdcard image
+## Preparing the firmware and the SDCard image
 
 You will need to prepare the firmware image and the SD Card image for use
 with the emulator.  As we don't have a real formatted SD Card to work with
@@ -45,22 +43,6 @@ This will create the following binaries needed for the next steps:
 - 2063-Z80-cpm/boot/firmware.bin
 - 2063-Z80-cpm/filesystem/drive.img
 
-### Create the ROM Image
-
-The emulator expects the firmware image to be exactly 16KB in size.  Use the
-`truncate` command in Linux to do that.
-
-```bash
-$ cd 2063-Z80-cpm/boot
-$ truncate -s 16K firmware.bin
-$ hexdump -C firmware.bin| tail -n 3
-000009b0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
-*
-00004000
-```
-
-Validate that the last line is 00004000 (0x4000 in hex) or 16K.
-
 ### Create the SD Card Image
 
 #### !!! WARNING !!! ####
@@ -71,68 +53,62 @@ you only format the loop device after setting it up.**
 This step is a bit more complicated and these steps are definitely ONLY going
 to work on a Linux host.
 
-```bash
-$ cd 2063-Z80-cpm/filesystem
-
-$ dd if=/dev/zero of=SDcard.img bs=1024 count=512000
-
-$ sudo losetup -Pf SDcard.img
-```
-
-At this point you want to verify the loopback device that was created by the
-`losetup` command.  You will need it in the next step.
+Start by making a new folder so that we don't overwrite anything important.
 
 ```bash
-$ sudo losetup --all | grep SDcard
-/dev/loop12: [2050]:7215475 (/home/davelatham/dev/retro/2063-Z80-cpm/filesystem/SDcard.img)
+$ mkdir emulator
+$ cd emulator
 ```
 
-The Loopback Device Setup tool `losetup` can be found here:
-[https://man7.org/linux/man-pages/man8/losetup.8.html](https://man7.org/linux/man-pages/man8/losetup.8.html)
-
-In my case here, the loopback device is `/dev/loop12` so that's what I will use.
-You must use the device name your system reports.
+Copy the `firmware.bin` file into the working directory and truncating it to 16KB.
 
 ```bash
-$ (
-echo n  # Add a new partition
-echo p  # Primary partition
-echo 1  # Partition number
-echo    # First sector (Accept default)
-echo +128M # Last sector (Accept default: varies)
-echo n  # Add a new partition
-echo p  # Primary partition
-echo 2  # Partition number
-echo    # First sector (Accept default)
-echo    # Last sector (Accept default: varies)
-echo t  # Partition Type
-echo 1  # First partition
-echo db # Tpye = CP/M
-echo t  # Partition Type
-echo 2  # Second partition
-echo 06 # Fat 16
-echo w  # Write changes
-) | sudo fdisk /dev/loop12
+$ cd emulator
+$ cp ../../2063-Z80-cpm/boot/firmware.bin ./
+$ truncate --size=16K firmware.bin
 ```
 
-Whew! Now that you have an image file with partitions on it, you can copy the
-`drive.img` CP/M file system on to it.
-
-You should still be in the `2063-Z80-cpm/filesystem` directory.
+Copy the `drive.img` to the working directory.
 
 ```bash
-$ sudo mkfs.msdos /dev/loop12p1
-$ sudo mkfs.msdos /dev/loop12p2
-$ sudo dd if=drive.img of=/dev/loop12p1 bs=512
+$ cd emulator
+$ cp ../../2063-Z80-cpm/filesystem/drive.img ./
 ```
 
-Finally unmount the loopback disk.
+Create an empty `sdcard.img` file in the working directory.
 
 ```bash
-$ sudo losetup -d /dev/loop12
+dd if=/dev/zero of=sdcard.img bs=1M count=129
 ```
 
-You should now have a 500MB SDcard.img file.
+Partition the sdcard image.
+
+```bash
+parted -s sdcard.img mklabel msdos
+parted -s sdcard.img mkpart primary 1 135
+```
+
+Mount the sdcard image into the kernel loopback device using the `losetup` command.  You must use sudo for this step.
+
+```bash
+sudo losetup -Pf --show sdcard.img
+```
+
+Observe which loopback device was created.  It is probably `/dev/loop0` but it might not be.  Whatever it is make sure the matching device name is used in the next step.
+
+```bash
+sudo chown ${USER}:${USER} /dev/loop0p1
+```
+
+Copy the `drive.img` into the first partition of the mounted sdcard.img at
+/dev/loop0p1 taking care to use the correct loopback device discovered in the
+previous steps.
+
+```bash
+sudo dd if=drive.img of=/dev/loop0p1 bs=512
+```
+
+Now you have the sdcard image ready for use with the emulator.
 
 ## Running the Emulator
 
@@ -140,13 +116,24 @@ To distinguish this "Z80-Retro!" project from a different
 Z80-Retro project, the author has named the emulator `2063` after the board
 number.
 
-```bash
-$ cd 2063-Z80-cpm
-$ ./2063 -r boot/firmware.bin -S filesystem/SDcard.img
+For convenience make a couple of symlinks.
 
+```bash
+$ cd emulator
+$ ln -s <path/to/emulator-kit/>2063
+$ ln -s <path/to/emulator-kit/>2063_sdl2
+```
+
+Run the emulator in text only mode.
+
+```bash
+$ ./2063 -r firmware.bin -S sdcard.img
+```
+
+```text
 Z80 Retro Board 2063.3
-      git: v20230317.1-0-g8bcf644 2023-03-17 22:20:02 -0500
-    build: 2023-04-23 18:03:16+12:00
+git: v20230317.1-0-g8bcf644 2023-03-17 22:20:02 -0500
+build: 2023-04-23 18:03:16+12:00
 
 Booting SD card partition 1
 
@@ -164,7 +151,7 @@ Loading 0x20 512-byte blocks into 0xC000 - 0xFFFF
 
 Z80 Retro BIOS Copyright (C) 2021 John Winans
 CP/M 2.2 Copyright (C) 1979 Digital Research
-  git: v20230317.1-0-g8bcf644 2023-03-17 22:20:02 -0500
+git: v20230317.1-0-g8bcf644 2023-03-17 22:20:02 -0500
 build: 2023-04-22 17:56:49+12:00
 
 NOTICE: rw_dmcache library installed.
@@ -172,4 +159,12 @@ NOTICE: rw_dmcache library installed.
 a>
 ```
 
-Exit the emulator by typing `CTRL+\`
+Run the emulator in text + graphics mode
+
+```bash
+./2063_sdl2 -r firmware.bin -S sdcard.img -T
+
+```
+
+Exit the emulator by typing `CTRL+\`  or in graphics mode by closing the TMS9918 window.
+

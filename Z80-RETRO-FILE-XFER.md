@@ -158,3 +158,7 @@ a>
 The `xs.com` utility is for receiving files from CP/M to the host computer and
 works in a very similar manner to `xr.com`.
 
+## Use NHGET and NHPUT
+
+### TODO: Need to add instructions for nhtools.  Most likely will be a new section.
+

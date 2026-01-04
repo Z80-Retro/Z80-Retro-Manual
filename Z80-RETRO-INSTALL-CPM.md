@@ -118,9 +118,6 @@ In summary the steps are as follows:
 
 This step describes how to copy the base OS onto the SD Card.
 
-* [ ] TODO: Add section with instructions building multiple CP/M drives using
-    the z80-disk-maker repository.
-
 The `make world` recipe compiles 3 main features:
 
 * boot/firmware.bin - Firmware for the FLASH ROM.
@@ -154,7 +151,7 @@ $ sudo dd if=filesystem/drive.img of=/dev/sdd1 bs=512 conv=fsync
 Now eject your SD Card and try it out on the Retro.
 If everything works, you should see something like this on your terminal:
 
-```bash
+```text
 Z80 Retro Board 2063.3
       git: v20230312.1-16-gef7b3f7 2023-05-04 21:48:53 -0500
     build: 2023-05-13 17:21:25+12:00
@@ -182,3 +179,10 @@ NOTICE: rw_dmcache library installed.
 
 a>
 ```
+
+## Additional Drives
+
+If you want additional drives, have a look at
+[https://github.com/Z80-Retro/example-filesystem](https://github.com/Z80-Retro/example-filesystem)
+for instructions on how set them up and flash them on to the SDCard.
+
