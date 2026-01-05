@@ -54,7 +54,9 @@ video linked above.
 
 In any event, due to the thermodynamics of these TMS chips discussed in the next
 paragraph, you should not leave the programmer board permanently connected
-above the VDP.
+above the VDP.  It might be possible to mount it beneath the VDP, but
+considering that flashing the ROM is not normally a common task, it's safer to
+disconnect it when not using it.
 
 ## Heat
 
